@@ -14,7 +14,7 @@
 <!-- 자바스크립트 입력 시작-->
 <script>
 function memberinsert(){
-    window.open("${pageContext.request.contextPath }/system/memberinsert","팝업 테스트","width=1500, height=900, top=200, left=200");
+    window.open("${pageContext.request.contextPath }/system/memberinsert","팝업 테스트","width=570, height=570, top=200, left=200");
 }
 
 </script>

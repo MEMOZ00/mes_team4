@@ -11,9 +11,7 @@
 		insert into employees(emp_no,dept_cd,grade_cd,priv_cd,emp_name,emp_pass) 
 		values(#{emp_no},#{dept_cd},#{grade_cd},#{priv_cd},#{emp_name},#{emp_pass})
 	</insert>
-	
-	
-	
+
 	<select id="getMaxEmp_no" resultType="java.lang.Integer">
 		select max(emp_no) from employees
 	</select>

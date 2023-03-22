@@ -21,7 +21,7 @@ public class SystemDAOImpl implements SystemDAO {
 	}
 	@Override
 	public Integer getMaxEmp_no() {
-		System.out.println("SystemDAOImpl getMaxEmb_no()");
+		System.out.println("SystemDAOImpl getMaxEmp_no()");
 		
 		return sqlSession.selectOne(namespace +".getMaxEmp_no");
 	}
