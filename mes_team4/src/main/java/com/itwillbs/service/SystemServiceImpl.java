@@ -15,7 +15,6 @@ public class SystemServiceImpl implements SystemService{
 	@Override
 	public void memberinsertpro(SystemDTO systemDTO) {
 		System.out.println("SystemServiceImpl memberinsertpro()");
-		
 		if(systemDAO.getMaxEmp_no() == null) {
 			//게시판 글 없음 = num =1
 			systemDTO.setEmp_no(100000);
@@ -23,7 +22,7 @@ public class SystemServiceImpl implements SystemService{
 			//게시판 글 있음 MaxNum()+1
 			systemDTO.setEmp_no(systemDAO.getMaxEmp_no()+1);
 		}
-	
+		
 		systemDAO.memberinsertpro(systemDTO);
 	}
 	

@@ -75,7 +75,7 @@ function memberinsert(){
 	
 <!-- 본문HTML 입력 끝-->
 	</div>
-</div>
+
 
 <!-- 푸터 들어가는 곳 -->
 <jsp:include page="../main/Footer.jsp" />

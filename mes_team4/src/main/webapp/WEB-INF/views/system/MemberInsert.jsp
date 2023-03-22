@@ -13,7 +13,10 @@
 
 <!-- 자바스크립트 입력 시작-->
 <script>
-	
+setTimeout(function() => {
+	opener.parent.location.reload();
+	window.close();
+}, 100);
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -21,7 +24,7 @@
 	<!-- 본문HTML 입력 시작-->
 	<h2>사용자추가</h2>
 	<br><br><br>
-	<form action="${pageContext.request.contextPath }/system/memberinsertpro;insertpro()" method="post">
+	<form action="${pageContext.request.contextPath }/system/memberinsertpro;setTimeout()" method="post">
 		<table id="vendortable" class=" table table-striped">
 			<thead>
 				<tr style="text-align: center; font-size: 0.9rem">
@@ -54,29 +57,19 @@
 						<input type="radio" name="grade_cd" value="사원" /> 사원	
 					</td>
 					<td>
-						<div>
-							<input type="checkbox" id="priv_cd" name="priv_cd" >
-							<label for="0">기본등록</label>
-						</div>
-						<div>
-							<input type="checkbox" id="priv_cd" name="priv_cd"> <label
-								for="1">사원조회</label>
-						</div>
-						<div>
-							<input type="checkbox" id="priv_cd" name="priv_cd"> <label
-								for="2">사원관리</label>
-						</div>
-						<div>
-							<input type="checkbox" id="priv_cd" name="priv_cd"> <label
-								for="3">재고조회</label>
-						</div>
-						<div>
-							<input type="checkbox" id="priv_cd" name="priv_cd"> <label
-								for="4">재고관리</label>
-						</div>
+
+						<input type="checkbox" id="priv_cd" name="priv_cd" value="0" /> 기본등록<br>
+						<input type="checkbox" id="priv_cd" name="priv_cd" value="1" /> 사원조회<br>
+						<input type="checkbox" id="priv_cd" name="priv_cd" value="2" /> 사원관리<br>
+						<input type="checkbox" id="priv_cd" name="priv_cd" value="3" /> 재고조회<br>
+						<input type="checkbox" id="priv_cd" name="priv_cd" value="4" /> 재고관리 
 					</td>
 			</tbody>
 		</table>
+		<div style= "margin-top: 30px; text-align: center ">
+		<button class="button2" onclick="submit">사용자추가</button>
+	  	<button class="button2" onclick="window.close()">창닫기</button>
+	  	</div>
 	</form>
 
 	<!-- 본문HTML 입력 끝-->
