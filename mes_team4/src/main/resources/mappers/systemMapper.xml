@@ -18,7 +18,7 @@
 	
 	 <select id="getsystemlist" resultType="com.itwillbs.domain.SystemDTO">
     	select * from employees
-    	order by emp_no desc
+    	order by emp_no
     	limit #{startRow},#{pageSize}	
     </select>
 	

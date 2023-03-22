@@ -73,9 +73,9 @@ $('#insert').submit(function(){
 	<!-- 본문HTML 입력 시작-->
 	
 	
-	<form action="${pageContext.request.contextPath }/system/memberinsertpro" id="insert" method="post">
+	<form action="${pageContext.request.contextPath }/system/memberinsertpro" name="insert" id="insert" method="post">
 		
-<fieldset style="width:500px; height:520px; padding-left:20px; padding-right: 20px;">
+<fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자추가</h2>
 					<div>
 					<label>사원명</label>
@@ -114,15 +114,16 @@ $('#insert').submit(function(){
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" /> 재고조회
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" /> 재고관리 
 					</div>
-					<div style= "margin-top: 30px; text-align: center ">
-
-		<button class="button2" onclick="submit" >사용자추가</button>
-	  	<button class="button2" onclick="window.close()">창닫기</button>
-	  	</div>
+					
+		
 					
 			</fieldset>
 		
 	</form>
+<div style= "margin-top: 30px; text-align: center ">
+		<button class="button2" form="insert" onclick="submit" >사용자추가</button>
+	  	<button class="button2" onclick="window.close()">창닫기</button>
+	  	</div>
 
 	<!-- 본문HTML 입력 끝-->
 </div>

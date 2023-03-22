@@ -53,15 +53,15 @@ function memberinsert(){
 			
 			<tbody>
 				
-				<c:forEach var ="memberDTO" items="${memberList}">
-					<tr><td><input type="checkbox" id="checkbox"></td>	
-						<td>${memberDTO.emp_no}</td>
-						<td>${memberDTO.emp_pass}</td>
-						<td>${memberDTO.emp_name}</td>
-						<td>${memberDTO.dept_cd}</td>
-						<td>${memberDTO.grade_cd}</td>
-						<td>${memberDTO.priv_cd}</td></tr>
-						<th><button class="button2" value="${memberDTO.emp_no}">수정</button></th>
+				<c:forEach var ="systemDTO" items="${systemList}">
+					<tr><td><input type="checkbox" id="checkbox" value="${systemDTO.emp_no}"></td>	
+						<td>${systemDTO.emp_no}</td>
+						<td>${systemDTO.emp_pass}</td>
+						<td>${systemDTO.emp_name}</td>
+						<td>${systemDTO.dept_cd}</td>
+						<td>${systemDTO.grade_cd}</td>
+						<td>${systemDTO.priv_cd}</td>
+						<td><button class="button2" value="${systemDTO.emp_no}">수정</button></td></tr>
 				</c:forEach>
 
 			</tbody>
@@ -71,7 +71,17 @@ function memberinsert(){
 	
 	
 	</form>
-	
+	<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">[10페이지 이전]</a>
+</c:if>
+
+<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${i}">${i}</a>
+</c:forEach>
+
+<c:if test="${pageDTO.endPage < pageDTO.pageCount}">
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.endPage + pageDTO.pageBlock}">[10페이지 이후]</a>
+</c:if>
 	
 <!-- 본문HTML 입력 끝-->
 	</div>

@@ -23,7 +23,7 @@ public class SystemController {
 	public String membermain(HttpServletRequest request, Model model) {
 			System.out.println("SystemController membermain()");
 //			한 화면에 보여줄 글의 개수 설정
-			int pageSize =20;
+			int pageSize =10;
 //			현재 페이지 번호 가져오기
 			String pageNum = request.getParameter("pageNum");
 			if(pageNum == null) {
