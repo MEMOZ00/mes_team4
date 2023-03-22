@@ -34,7 +34,7 @@ function memberinsert(){
 	 <br>
 	 
 	 
-	<form method="post">
+	<form method="post" id="form">
 		<input type="hidden" value="">
 		
 		<table id="vendortable" class=" table table-striped">
@@ -61,7 +61,7 @@ function memberinsert(){
 						<td>${systemDTO.dept_cd}</td>
 						<td>${systemDTO.grade_cd}</td>
 						<td>${systemDTO.priv_cd}</td>
-						<td><button class="button2" value="${systemDTO.emp_no}">수정</button></td></tr>
+						<td><button class="button2" id="btn">수정</button></td></tr>
 				</c:forEach>
 
 			</tbody>

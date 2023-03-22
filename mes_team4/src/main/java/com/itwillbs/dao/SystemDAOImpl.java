@@ -42,6 +42,12 @@ public class SystemDAOImpl implements SystemDAO {
 		System.out.println("SystemDAOImpl getsystemcount()");
 		return sqlSession.selectOne(namespace + ".getsystemcount");
 	}
+	@Override
+	public SystemDTO memberinfo(int emp_no) {
+		System.out.println("SystemDAOImpl memberinfo()");
+		return sqlSession.selectOne(namespace + ".memberinfo", emp_no);
+	}
+	
 	
 	
 }

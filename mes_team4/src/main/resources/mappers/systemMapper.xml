@@ -25,6 +25,13 @@
 	<select id="getsystemcount" resultType="java.lang.Integer">
         select count(*) from employees
     </select>
+    
+    <select id="memberinfo" resultType="com.itwillbs.domain.SystemDTO">
+        select dept_cd,grade_cd,priv_cd,emp_name,emp_pass
+        from employees
+        where emp_no = #{emp_no}
+    </select>
+    
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
 <!-- 		select * from members  -->
 <!-- 		where id = #{id} and pass = #{pass}  -->

@@ -50,6 +50,13 @@ public class SystemServiceImpl implements SystemService{
 		
 		return systemDAO.getsystemcount();
 	}
+
+	@Override
+	public SystemDTO memberinfo(int emp_no) {
+		System.out.println("SystemServiceImpl memberinfo()");
+		
+		return systemDAO.memberinfo(emp_no);
+	}
 	
 	
 	

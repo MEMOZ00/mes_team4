@@ -12,4 +12,6 @@ public interface SystemService {
 	public List<SystemDTO> getsystemlist(PageDTO pageDTO);
 	
 	public int getsystemcount();
+	
+	public SystemDTO memberinfo(int emp_no);
 }
