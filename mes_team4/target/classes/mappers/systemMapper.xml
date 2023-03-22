@@ -16,6 +16,15 @@
 		select max(emp_no) from employees
 	</select>
 	
+	 <select id="getsystemlist" resultType="com.itwillbs.domain.SystemDTO">
+    	select * from employees
+    	order by emp_no desc
+    	limit #{startRow},#{pageSize}	
+    </select>
+	
+	<select id="getsystemcount" resultType="java.lang.Integer">
+        select count(*) from employees
+    </select>
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
 <!-- 		select * from members  -->
 <!-- 		where id = #{id} and pass = #{pass}  -->
