@@ -20,7 +20,9 @@ function memberinsert(){
 function memberupdate(){
     window.open("","popup","width=570, height=570, top=200, left=200");
 }
-
+function memberdelete(){
+    window.open("","popup","width=570, height=570, top=200, left=200");
+}
 
 </script>
 <!-- 자바스크립트 입력 끝-->
@@ -32,7 +34,6 @@ function memberupdate(){
 	<div class="wrap2">
 	
 	  <button class="button2" onclick = "memberinsert();">추가</button>
-	  <button class="button2">삭제</button>
 	  <button class="button2">조회</button>
 	  
 	 </div><br>
@@ -45,7 +46,6 @@ function memberupdate(){
 		<table id="vendortable" class=" table table-striped">
 			<thead>
 				<tr style="text-align: center; font-size: 0.9rem">
-					<th>선택</th>
 					<th>사원번호</th>
 					<th>비밀번호</th>
 					<th>사원명</th>
@@ -53,20 +53,21 @@ function memberupdate(){
 					<th>직급</th>
 					<th>권한</th>
 					<th>수정</th>
+					<th>삭제</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 				
 				<c:forEach var ="systemDTO" items="${systemList}">
-					<tr><td><input type="checkbox" id="checkbox" value="${systemDTO.emp_no}"></td>	
-						<td>${systemDTO.emp_no}</td>
+					<tr><td>${systemDTO.emp_no}</td>
 						<td>${systemDTO.emp_pass}</td>
 						<td>${systemDTO.emp_name}</td>
 						<td>${systemDTO.dept_cd}</td>
 						<td>${systemDTO.grade_cd}</td>
 						<td>${systemDTO.priv_cd}</td>
-						<td><form action ="${pageContext.request.contextPath }/system/memberupdate?emp_no=${systemDTO.emp_no}" method="post" target="popup"><button class="button2" onclick = "memberupdate();">수정</button></form></td></tr>
+						<td><form action ="${pageContext.request.contextPath }/system/memberupdate?emp_no=${systemDTO.emp_no}" method="post" target="popup"><button class="button2" onclick ="memberupdate();">수정</button></form></td>
+						<td><form action ="${pageContext.request.contextPath }/system/memberdelete?emp_no=${systemDTO.emp_no}" method="post" target="popup2"><button class="button2" onclick ="memberdelete();">삭제</button></form></td></tr>	
 				</c:forEach>
 
 			</tbody>

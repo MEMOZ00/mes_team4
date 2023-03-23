@@ -27,27 +27,31 @@ $('#update').submit(function(){
 		return false;
 	}
   //class="pass"
-    if($('.emp_pass').val()==""){
+    if($('.emp_pass1').val()==""){
     	alert("현재비밀번호를 입력하세요");
-		$('.emp_pass').focus();
+		$('.emp_pass1').focus();
 		return false;
     }
   
-  
-  
-    if($('.emp_pass2').val()==""){
-    	alert("새 비밀번호를 입력하세요");
-		$('.emp_pass2').focus();
+    if($('.emp_pass1').val() != ${systemDTO.emp_pass}){
+    	alert("비밀번호 틀림");
+		$('.emp_pass1').focus();
 		return false;
     }
     
-    if($('.emp_pass3').val()==""){
+    if($('.emp_pass').val()==""){
+    	alert("새 비밀번호를 입력하세요");
+		$('.emp_pass').focus();
+		return false;
+    }
+    
+    if($('.emp_pass2').val()==""){
     	alert("새 비밀번호를 확인해주세요");
 		$('.emp_pass2').focus();
 		return false;
     }
     
-    if($('.emp_pass2').val() != $('.emp_pass3').val()){
+    if($('.emp_pass').val() != $('.emp_pass2').val()){
     	alert("비밀번호 틀림");
 		$('.emp_pass2').focus();
 		return false;
@@ -67,11 +71,12 @@ $('#update').submit(function(){
     	alert("권한을 체크하세요");
 		return false;
     }
-  return setTimeout(function() {
- 	 opener.parent.location.reload();
-	 window.close();
-}, 100);
+    setTimeout(function() {
+    opener.parent.location.reload();
+   	 window.close();
+    }, 100);
 
+    return true;
 });//
 });
 
@@ -86,22 +91,22 @@ $('#update').submit(function(){
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자수정</h2>
-					<input type="hidden" name="emp_no" class="emp_no" value="${systemDTO.emp_no}">
+					<input type="hidden" class="emp_no" value="${systemDTO.emp_no}">
 					<div>
 					<label>사원명</label>
-					<input type="text" name="emp_name" class="emp_name" style="width:150px;height:30px;font-size:18px;" value="${systemDTO.emp_name}"><br><br>
+					<input type="text"  class="emp_name" style="width:150px;height:30px;font-size:18px;" value="${systemDTO.emp_name}"><br><br>
 					</div>
 					<div>
 					<label>현재비밀번호</label>
-					<input type="password" name="emp_pass" class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password" class="emp_pass1" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>새 비밀번호</label>
-					<input type="password" name="emp_pass2" class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password"  class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>새 비밀번호확인</label>
-					<input type="password" name="emp_pass3" class="emp_pass3" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password"  class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<label>부서</label><br>
 					<div>
@@ -128,14 +133,12 @@ $('#update').submit(function(){
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" ${systemDTO.priv_cd.contains("3") ? 'checked':''}/> 재고조회
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" ${systemDTO.priv_cd.contains("4") ? 'checked':''}/> 재고관리 
 					</div>
-					
-		
-					
+
 			</fieldset>
 		
 	</form>
-<div style= "margin-top: 30px; text-align: center ">
-		<button class="button2" form="update" onclick="submit" >사용자수정</button>
+<div style="text-align: center ">
+		<button class="button2" form="update" onclick="submit">사용자수정</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 

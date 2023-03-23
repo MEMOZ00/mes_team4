@@ -59,11 +59,12 @@ $('#insert').submit(function(){
     	alert("권한을 체크하세요");
 		return false;
     }
-  return setTimeout(function() {
+setTimeout(function() {
  	 opener.parent.location.reload();
 	 window.close();
-}, 100);
+ }, 100);
 
+	return true;
 });//
 });
 </script>
@@ -120,8 +121,8 @@ $('#insert').submit(function(){
 			</fieldset>
 		
 	</form>
-<div style= "margin-top: 30px; text-align: center ">
-		<button class="button2" form="insert" onclick="submit" >사용자추가</button>
+<div style="text-align:center">
+		<button class="button2" form="insert" onclick="submit">사용자추가</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 

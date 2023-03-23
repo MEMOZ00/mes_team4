@@ -57,6 +57,14 @@ public class SystemServiceImpl implements SystemService{
 		
 		return systemDAO.memberinfo(emp_no);
 	}
+
+	@Override
+	public void memberupdatepro(SystemDTO systemDTO) {
+		System.out.println("SystemServiceImpl memberupdatepro()");
+		
+		systemDAO.memberupdatepro(systemDTO);
+	}
+
 	
 	
 	

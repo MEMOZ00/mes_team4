@@ -32,6 +32,13 @@
         where emp_no = #{emp_no}
     </select>
     
+    <update id="memberupdatepro">
+    	update employees 
+    	set emp_name = #{emp_name}, emp_pass = #{emp_pass}, dept_cd = #{dept_cd}, grade_cd = #{grade_cd}, priv_cd = #{priv_cd}
+    	where emp_no = #{emp_no}	
+    </update>
+ 
+    
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
 <!-- 		select * from members  -->
 <!-- 		where id = #{id} and pass = #{pass}  -->

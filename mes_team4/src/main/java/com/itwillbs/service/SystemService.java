@@ -14,4 +14,8 @@ public interface SystemService {
 	public int getsystemcount();
 	
 	public SystemDTO memberinfo(int emp_no);
+	
+	public void memberupdatepro(SystemDTO systemDTO);
+	
+
 }

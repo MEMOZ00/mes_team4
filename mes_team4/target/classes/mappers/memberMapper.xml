@@ -17,6 +17,7 @@
 		where id = #{id} and pass = #{pass} 
 	</select>
 
+
 <!-- 	<select id="selectBlog" parameterType="int" resultType="Blog">
         select * from Blog where id = #{id}
     </select>

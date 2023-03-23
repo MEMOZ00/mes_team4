@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.SystemDTO;
 import com.itwillbs.service.SystemService;
@@ -98,4 +99,19 @@ public class SystemController {
 		return "system/MemberUpdate";
 	}
 
+	@RequestMapping(value = "/system/memberupdatepro", method = RequestMethod.POST)
+	public String memberupdatepro(SystemDTO systemDTO) {
+		System.out.println("SystemController memberupdatepro()");
+		// 디비 수정 처리 => 처리 => 디비 자바 메서드 호출
+
+		
+			systemService.memberupdatepro(systemDTO);
+			// 주소 변경되면서 로그인 페이지로 이동 
+			// response.sendRedirect("/member/main");
+			return "redirect:/system/membermain";	
+	}
+
+	
+	
+	
 }
