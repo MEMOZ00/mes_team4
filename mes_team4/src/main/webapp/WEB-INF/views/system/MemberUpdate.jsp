@@ -28,18 +28,26 @@ $('#update').submit(function(){
 	}
   //class="pass"
     if($('.emp_pass').val()==""){
-    	alert("비밀번호를 입력하세요");
+    	alert("현재비밀번호를 입력하세요");
 		$('.emp_pass').focus();
 		return false;
     }
   
+  
+  
     if($('.emp_pass2').val()==""){
-    	alert("비밀번호2 입력하세요");
+    	alert("새 비밀번호를 입력하세요");
 		$('.emp_pass2').focus();
 		return false;
     }
     
-    if($('.emp_pass').val() != $('.emp_pass2').val()){
+    if($('.emp_pass3').val()==""){
+    	alert("새 비밀번호를 확인해주세요");
+		$('.emp_pass2').focus();
+		return false;
+    }
+    
+    if($('.emp_pass2').val() != $('.emp_pass3').val()){
     	alert("비밀번호 틀림");
 		$('.emp_pass2').focus();
 		return false;
@@ -66,6 +74,7 @@ $('#update').submit(function(){
 
 });//
 });
+
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -77,10 +86,10 @@ $('#update').submit(function(){
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자수정</h2>
-					<input type="hidden" name="emp_no" class="emp_no">
+					<input type="hidden" name="emp_no" class="emp_no" value="${systemDTO.emp_no}">
 					<div>
 					<label>사원명</label>
-					<input type="text" name="emp_name" class="emp_name" style="width:150px;height:30px;font-size:18px;"value=${systemDTO.emp_name }><br><br>
+					<input type="text" name="emp_name" class="emp_name" style="width:150px;height:30px;font-size:18px;" value="${systemDTO.emp_name}"><br><br>
 					</div>
 					<div>
 					<label>현재비밀번호</label>
@@ -88,36 +97,36 @@ $('#update').submit(function(){
 					</div>
 					<div>
 					<label>새 비밀번호</label>
-					<input type="password" name="emp_pass" class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password" name="emp_pass2" class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>새 비밀번호확인</label>
-					<input type="password" name="emp_pass2" class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password" name="emp_pass3" class="emp_pass3" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<label>부서</label><br>
 					<div>
-						<input type="radio" name="dept_cd" class="dept_cd" value="11" /> 총무부
-						<input type="radio" name="dept_cd" class="dept_cd" value="22" /> 인사부
-						<input type="radio" name="dept_cd" class="dept_cd" value="33" /> 영업부
-						<input type="radio" name="dept_cd" class="dept_cd" value="44" /> 생산부
-						<input type="radio" name="dept_cd" class="dept_cd" value="55" /> 자재관리부	
+						<input type="radio" name="dept_cd" class="dept_cd" value="11" ${systemDTO.dept_cd eq '11' ? 'checked':''}/> 총무부
+						<input type="radio" name="dept_cd" class="dept_cd" value="22" ${systemDTO.dept_cd eq '22' ? 'checked':''}/> 인사부
+						<input type="radio" name="dept_cd" class="dept_cd" value="33" ${systemDTO.dept_cd eq '33' ? 'checked':''}/> 영업부
+						<input type="radio" name="dept_cd" class="dept_cd" value="44" ${systemDTO.dept_cd eq '44' ? 'checked':''}/> 생산부
+						<input type="radio" name="dept_cd" class="dept_cd" value="55" ${systemDTO.dept_cd eq '55' ? 'checked':''}/> 자재관리부	
 					</div><br>
 					<label>직급</label><br>
 					<div>
-						<input type="radio" name="grade_cd" class="grade_cd" value="대표" /> 대표
-						<input type="radio" name="grade_cd" class="grade_cd" value="이사" /> 이사
-						<input type="radio" name="grade_cd" class="grade_cd" value="부장" /> 부장
-						<input type="radio" name="grade_cd" class="grade_cd" value="과장" /> 과장
-						<input type="radio" name="grade_cd" class="grade_cd" value="대리" /> 대리	
-						<input type="radio" name="grade_cd" class="grade_cd" value="사원" /> 사원	
+						<input type="radio" name="grade_cd" class="grade_cd" value="대표" ${systemDTO.grade_cd eq '대표' ? 'checked':''}/> 대표
+						<input type="radio" name="grade_cd" class="grade_cd" value="이사" ${systemDTO.grade_cd eq '이사' ? 'checked':''}/> 이사
+						<input type="radio" name="grade_cd" class="grade_cd" value="부장" ${systemDTO.grade_cd eq '부장' ? 'checked':''}/> 부장
+						<input type="radio" name="grade_cd" class="grade_cd" value="과장" ${systemDTO.grade_cd eq '과장' ? 'checked':''}/> 과장
+						<input type="radio" name="grade_cd" class="grade_cd" value="대리" ${systemDTO.grade_cd eq '대리' ? 'checked':''}/> 대리	
+						<input type="radio" name="grade_cd" class="grade_cd" value="사원" ${systemDTO.grade_cd eq '사원' ? 'checked':''}/> 사원	
 					</div><br>
 					<label>권한</label><br>
 					<div>
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="0" /> 기본등록
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="1" /> 사원조회
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="2" /> 사원관리
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" /> 재고조회
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" /> 재고관리 
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="0" ${systemDTO.priv_cd.contains("0") ? 'checked':''}/> 기본등록
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="1" ${systemDTO.priv_cd.contains("1") ? 'checked':''}/> 사원조회
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="2" ${systemDTO.priv_cd.contains("2") ? 'checked':''}/> 사원관리
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" ${systemDTO.priv_cd.contains("3") ? 'checked':''}/> 재고조회
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" ${systemDTO.priv_cd.contains("4") ? 'checked':''}/> 재고관리 
 					</div>
 					
 		
@@ -126,7 +135,7 @@ $('#update').submit(function(){
 		
 	</form>
 <div style= "margin-top: 30px; text-align: center ">
-		<button class="button2" form="insert" onclick="submit" >사용자수정</button>
+		<button class="button2" form="update" onclick="submit" >사용자수정</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 

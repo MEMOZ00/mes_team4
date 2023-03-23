@@ -83,15 +83,19 @@ public class SystemController {
 		// 가상주소에서 주소변경 하면서 이동
 		return "redirect:/system/membermain";
 	}
+	
 	@RequestMapping(value = "/system/memberupdate", method = RequestMethod.POST)
-	public String memberupdate(int emp_no, Model model) {
+	public String memberupdate(HttpServletRequest request, Model model) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("SystemController memberupdate()");
+		int emp_no = Integer.parseInt(request.getParameter("emp_no")); 
 		SystemDTO systemDTO = systemService.memberinfo(emp_no);
 		model.addAttribute("systemDTO", systemDTO);
-		return "system/MemberUpdate";
+		// MemberService memberService = new MemberServiceImpl();
 		
+		
+		// 가상주소에서 주소변경 하면서 이동
+		return "system/MemberUpdate";
 	}
-	
-	
+
 }

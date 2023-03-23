@@ -17,6 +17,11 @@ function memberinsert(){
     window.open("${pageContext.request.contextPath }/system/memberinsert","팝업 테스트","width=570, height=570, top=200, left=200");
 }
 
+function memberupdate(){
+    window.open("","popup","width=570, height=570, top=200, left=200");
+}
+
+
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -34,7 +39,7 @@ function memberinsert(){
 	 <br>
 	 
 	 
-	<form method="post" id="form">
+<!-- 	<form method="post" id="form"> -->
 		<input type="hidden" value="">
 		
 		<table id="vendortable" class=" table table-striped">
@@ -61,7 +66,7 @@ function memberinsert(){
 						<td>${systemDTO.dept_cd}</td>
 						<td>${systemDTO.grade_cd}</td>
 						<td>${systemDTO.priv_cd}</td>
-						<td><button class="button2" id="btn">수정</button></td></tr>
+						<td><form action ="${pageContext.request.contextPath }/system/memberupdate?emp_no=${systemDTO.emp_no}" method="post" target="popup"><button class="button2" onclick = "memberupdate();">수정</button></form></td></tr>
 				</c:forEach>
 
 			</tbody>
@@ -70,7 +75,7 @@ function memberinsert(){
 		<div id="array"></div>
 	
 	
-	</form>
+<!-- 	</form> -->
 	<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
 	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">[10페이지 이전]</a>
 </c:if>
