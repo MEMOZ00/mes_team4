@@ -19,4 +19,10 @@ public interface SystemDAO {
 	
 	public void memberupdatepro(SystemDTO systemDTO);
 
+	public void memberdelete(int emp_no);
+
+
+
+	
+
 }

@@ -55,6 +55,14 @@ public class SystemDAOImpl implements SystemDAO {
 		
 		sqlSession.update(namespace + ".memberupdatepro", systemDTO);
 	}
+	@Override
+	public void memberdelete(int emp_no) {
+		System.out.println("SystemDAOImpl memberdelete()");
+		
+		sqlSession.delete(namespace + ".memberdelete", emp_no);
+		
+	}
+
 
 	
 	

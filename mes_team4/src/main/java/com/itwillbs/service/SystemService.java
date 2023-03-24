@@ -16,6 +16,9 @@ public interface SystemService {
 	public SystemDTO memberinfo(int emp_no);
 	
 	public void memberupdatepro(SystemDTO systemDTO);
+
+	public void memberdelete(int emp_no);
+
 	
 
 }

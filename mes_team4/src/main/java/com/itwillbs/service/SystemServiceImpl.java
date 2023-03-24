@@ -65,6 +65,16 @@ public class SystemServiceImpl implements SystemService{
 		systemDAO.memberupdatepro(systemDTO);
 	}
 
+	@Override
+	public void memberdelete(int emp_no) {
+		System.out.println("SystemServiceImpl memberdelete()");
+		
+		systemDAO.memberdelete(emp_no);
+		
+	}
+
+
+
 	
 	
 	

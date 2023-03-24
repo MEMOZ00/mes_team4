@@ -38,6 +38,11 @@
     	where emp_no = #{emp_no}	
     </update>
  
+  	<delete id="memberdelete">
+  		delete from employees
+  		where emp_no = #{emp_no}
+    </delete> 
+
     
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
 <!-- 		select * from members  -->
