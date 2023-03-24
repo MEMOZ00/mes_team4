@@ -27,14 +27,14 @@
     </select>
     
     <select id="memberinfo" resultType="com.itwillbs.domain.SystemDTO">
-        select dept_cd,grade_cd,priv_cd,emp_name,emp_pass
+        select dept_cd,grade_cd,priv_cd,emp_name,emp_pass,emp_no
         from employees
         where emp_no = #{emp_no}
     </select>
     
     <update id="memberupdatepro">
     	update employees 
-    	set emp_name = #{emp_name}, emp_pass = #{emp_pass}, dept_cd = #{dept_cd}, grade_cd = #{grade_cd}, priv_cd = #{priv_cd}
+    	set emp_name = #{emp_name}, emp_pass = #{newemp_pass}, dept_cd = #{dept_cd}, grade_cd = #{grade_cd}, priv_cd = #{priv_cd}
     	where emp_no = #{emp_no}	
     </update>
  

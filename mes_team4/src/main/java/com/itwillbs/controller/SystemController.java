@@ -85,11 +85,11 @@ public class SystemController {
 		return "redirect:/system/membermain";
 	}
 	
-	@RequestMapping(value = "/system/memberupdate", method = RequestMethod.POST)
+	@RequestMapping(value = "/system/memberupdate", method = RequestMethod.GET)
 	public String memberupdate(HttpServletRequest request, Model model) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("SystemController memberupdate()");
-		int emp_no = Integer.parseInt(request.getParameter("emp_no")); 
+		int emp_no = Integer.parseInt(request.getParameter("emp_no"));
 		SystemDTO systemDTO = systemService.memberinfo(emp_no);
 		model.addAttribute("systemDTO", systemDTO);
 		// MemberService memberService = new MemberServiceImpl();
@@ -103,7 +103,12 @@ public class SystemController {
 	public String memberupdatepro(SystemDTO systemDTO) {
 		System.out.println("SystemController memberupdatepro()");
 		// 디비 수정 처리 => 처리 => 디비 자바 메서드 호출
-
+		System.out.println(systemDTO.getEmp_no());
+		System.out.println(systemDTO.getEmp_name());
+		System.out.println(systemDTO.getDept_cd());
+		System.out.println(systemDTO.getGrade_cd());
+		System.out.println(systemDTO.getPriv_cd());
+		System.out.println(systemDTO.getNewemp_pass());
 		
 			systemService.memberupdatepro(systemDTO);
 			// 주소 변경되면서 로그인 페이지로 이동 

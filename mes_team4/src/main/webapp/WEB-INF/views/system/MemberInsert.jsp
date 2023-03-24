@@ -64,7 +64,6 @@ setTimeout(function() {
 	 window.close();
  }, 100);
 
-	return true;
 });//
 });
 </script>

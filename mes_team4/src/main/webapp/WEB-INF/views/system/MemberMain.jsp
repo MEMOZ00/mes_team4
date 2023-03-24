@@ -14,16 +14,14 @@
 <!-- 자바스크립트 입력 시작-->
 <script>
 function memberinsert(){
-    window.open("${pageContext.request.contextPath }/system/memberinsert","팝업 테스트","width=570, height=570, top=200, left=200");
+	var win = window.open("${pageContext.request.contextPath }/system/memberinsert", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=570, height=570, top=200, left=200");
 }
-
-function memberupdate(){
-    window.open("","popup","width=570, height=570, top=200, left=200");
+function memberupdate(a) {
+	var win = window.open("${pageContext.request.contextPath }/system/memberupdate?emp_no=" + a, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=570, height=570, top=200, left=200");
 }
-function memberdelete(){
-    window.open("","popup","width=570, height=570, top=200, left=200");
+function memberdelete(a) {
+	var win = window.open("${pageContext.request.contextPath }/system/memberdelete?emp_no=" + a, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=570, height=570, top=200, left=200");
 }
-
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -33,14 +31,14 @@ function memberdelete(){
 	<h2>사용자관리</h2><br>
 	<div class="wrap2">
 	
-	  <button class="button2" onclick = "memberinsert();">추가</button>
+	  <button class="button2" onclick="memberinsert()">추가</button>
 	  <button class="button2">조회</button>
 	  
 	 </div><br>
 	 <br>
 	 
 	 
-<!-- 	<form method="post" id="form"> -->
+
 		<input type="hidden" value="">
 		
 		<table id="vendortable" class=" table table-striped">
@@ -54,6 +52,7 @@ function memberdelete(){
 					<th>권한</th>
 					<th>수정</th>
 					<th>삭제</th>
+					
 				</tr>
 			</thead>
 			
@@ -66,10 +65,10 @@ function memberdelete(){
 						<td>${systemDTO.dept_cd}</td>
 						<td>${systemDTO.grade_cd}</td>
 						<td>${systemDTO.priv_cd}</td>
-						<td><form action ="${pageContext.request.contextPath }/system/memberupdate?emp_no=${systemDTO.emp_no}" method="post" target="popup"><button class="button2" onclick ="memberupdate();">수정</button></form></td>
-						<td><form action ="${pageContext.request.contextPath }/system/memberdelete?emp_no=${systemDTO.emp_no}" method="post" target="popup2"><button class="button2" onclick ="memberdelete();">삭제</button></form></td></tr>	
-				</c:forEach>
+						<td><button class="button2" onclick="memberupdate(${systemDTO.emp_no})">수정</button></td>
+						<td><button class="button2" onclick="memberdelete(${systemDTO.emp_no})">삭제</button></td>
 
+			  	</c:forEach>
 			</tbody>
 		</table>
 

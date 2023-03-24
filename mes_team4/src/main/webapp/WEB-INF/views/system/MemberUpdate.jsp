@@ -20,63 +20,62 @@ $(document).ready(function(){
 // id="join" 폼태그 표시 => 전송
   
 $('#update').submit(function(){
-
+	
 	if($('.emp_name').val()==""){
 		alert("사원명을 입력하세요");
 		$('.emp_name').focus();
 		return false;
 	}
   //class="pass"
-    if($('.emp_pass1').val()==""){
+  if($('.emp_pass').val()==""){
     	alert("현재비밀번호를 입력하세요");
-		$('.emp_pass1').focus();
+		$('.emp_pass').focus();
 		return false;
     }
   
-    if($('.emp_pass1').val() != ${systemDTO.emp_pass}){
-    	alert("비밀번호 틀림");
-		$('.emp_pass1').focus();
+  if($('.emp_pass').val() != ${systemDTO.emp_pass}){
+    	alert("현재비밀번호 틀림");
+		$('.emp_pass').focus();
 		return false;
     }
     
-    if($('.emp_pass').val()==""){
+  if($('.newemp_pass').val()==""){
     	alert("새 비밀번호를 입력하세요");
 		$('.emp_pass').focus();
 		return false;
     }
     
-    if($('.emp_pass2').val()==""){
+  if($('.newemp_pass2').val()==""){
     	alert("새 비밀번호를 확인해주세요");
 		$('.emp_pass2').focus();
 		return false;
     }
     
-    if($('.emp_pass').val() != $('.emp_pass2').val()){
-    	alert("비밀번호 틀림");
+  if($('.newemp_pass').val() != $('.newemp_pass2').val()){
+    	alert("새 비밀번호 일치하지 않음");
 		$('.emp_pass2').focus();
 		return false;
     }
     
-    if($('.dept_cd').val()==""){
+  if($('.dept_cd').val()==""){
     	alert("부서를 체크하세요");
 		return false;
     }
     
-    if($('.grade_cd').val()==""){
+  if($('.grade_cd').val()==""){
     	alert("직급을 체크하세요");
 		return false;
     }
     
-    if($('.priv_cd').val()==""){
+  if($('.priv_cd').val()==""){
     	alert("권한을 체크하세요");
 		return false;
-    }
-    setTimeout(function() {
-    opener.parent.location.reload();
-   	 window.close();
-    }, 100);
-
-    return true;
+    } 
+  document.update.submit();
+  setTimeout(function() {
+	  	 opener.parent.location.reload();
+	 	 window.close();
+	  }, 100);
 });//
 });
 
@@ -91,22 +90,22 @@ $('#update').submit(function(){
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자수정</h2>
-					<input type="hidden" class="emp_no" value="${systemDTO.emp_no}">
+					<input type="hidden" name="emp_no" class="emp_no" value="${systemDTO.emp_no}">
 					<div>
 					<label>사원명</label>
-					<input type="text"  class="emp_name" style="width:150px;height:30px;font-size:18px;" value="${systemDTO.emp_name}"><br><br>
+					<input type="text" name="emp_name" class="emp_name" style="width:150px;height:30px;font-size:18px;" value="${systemDTO.emp_name}" readonly><br><br>
 					</div>
 					<div>
 					<label>현재비밀번호</label>
-					<input type="password" class="emp_pass1" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password" name="emp_pass" class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>새 비밀번호</label>
-					<input type="password"  class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password" name="newemp_pass" class="newemp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>새 비밀번호확인</label>
-					<input type="password"  class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="password"  name="newemp_pass2" class="newemp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<label>부서</label><br>
 					<div>
@@ -137,7 +136,7 @@ $('#update').submit(function(){
 			</fieldset>
 		
 	</form>
-<div style="text-align: center ">
+<div style="text-align:center">
 		<button class="button2" form="update" onclick="submit">사용자수정</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
