@@ -22,6 +22,7 @@ function memberupdate(a) {
 function memberdelete(a) {
 	location.href = '${pageContext.request.contextPath }/system/memberdelete?emp_no=' + a; 
 }
+
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -31,14 +32,8 @@ function memberdelete(a) {
 	<h2>사용자관리</h2>
 	<div class="wrap2">
 	
-	  <button class="button2" onclick="memberinsert()">추가</button>
-	  <div id="table_search">
-				<form action="${pageContext.request.contextPath}/system/membermain" method="get">
-					<input type="text" name="search" class="input_box"> 
-					<button class="button2"	type="submit" value="search">조회</button>	
-				</form>
-			</div>
-	  
+	  <button class="button2" onclick="memberinsert()">추가</button><br>
+
 	 </div><br>
 	
 	 
@@ -78,7 +73,12 @@ function memberdelete(a) {
 		</table>
 
 		<div id="array"></div>
-	
+	<div id="table_search" style="text-align:right;">
+				<form action="${pageContext.request.contextPath}/system/membermain" method="get">
+					<input type="text" name="search" class="input_box"> 
+					<button class="button2"	type="submit" value="search">조회</button>	
+				</form>
+			</div>
 	
 <!-- 	</form> -->
 
