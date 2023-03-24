@@ -84,15 +84,15 @@ function memberdelete(a) {
 
 
 	<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}%search=${pageDTO.search}">[10페이지 이전]</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${i}%search=${pageDTO.search}">${i}</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${i}&search=${pageDTO.search}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.endPage < pageDTO.pageCount}">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.endPage + pageDTO.pageBlock}%search=${pageDTO.search}">[10페이지 이후]</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.endPage + pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이후]</a>
 </c:if>
 	
 <!-- 본문HTML 입력 끝-->
