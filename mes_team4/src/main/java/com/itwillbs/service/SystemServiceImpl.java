@@ -45,10 +45,10 @@ public class SystemServiceImpl implements SystemService{
 	}
 
 	@Override
-	public int getsystemcount() {
+	public int getsystemcount(PageDTO pageDTO) {
 		System.out.println("SystemServiceImpl getsystemcount()");
 		
-		return systemDAO.getsystemcount();
+		return systemDAO.getsystemcount(pageDTO);
 	}
 
 	@Override

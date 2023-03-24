@@ -23,6 +23,7 @@ public class SystemController {
 	@RequestMapping(value = "/system/membermain", method = RequestMethod.GET)
 	public String membermain(HttpServletRequest request, Model model) {
 			System.out.println("SystemController membermain()");
+			String search =request.getParameter("search");
 //			한 화면에 보여줄 글의 개수 설정
 			int pageSize =10;
 //			현재 페이지 번호 가져오기
@@ -37,11 +38,12 @@ public class SystemController {
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
 			pageDTO.setCurrentPage(currentPage);
+			pageDTO.setSearch(search);
 			
 			List<SystemDTO> systemList=systemService.getsystemlist(pageDTO);
 			
 //			페이징처리
-			int count = systemService.getsystemcount();
+			int count = systemService.getsystemcount(pageDTO);
 			int pageBlock = 10;
 			int startPage = (currentPage-1)/pageBlock * pageBlock + 1;  
 			int endPage = startPage + pageBlock - 1;

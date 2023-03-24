@@ -2,6 +2,7 @@ package com.itwillbs.domain;
 
 public class SystemDTO {
 	
+	
 	private int emp_no;
 	private String emp_name;
 	private String emp_pass;
@@ -9,6 +10,7 @@ public class SystemDTO {
 	private String dept_cd;
 	private String grade_cd;
 	private String priv_cd;
+
 	
 	public int getEmp_no() {
 		return emp_no;
@@ -53,6 +55,7 @@ public class SystemDTO {
 	public void setPriv_cd(String priv_cd) {
 		this.priv_cd = priv_cd;
 	}
+
 	
 
 }

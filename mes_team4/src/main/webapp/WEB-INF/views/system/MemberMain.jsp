@@ -28,14 +28,19 @@ function memberdelete(a) {
 	<div id="contents">
 <!-- 본문HTML 입력 시작-->
 
-	<h2>사용자관리</h2><br>
+	<h2>사용자관리</h2>
 	<div class="wrap2">
 	
 	  <button class="button2" onclick="memberinsert()">추가</button>
-	  <button class="button2">조회</button>
+	  <div id="table_search">
+				<form action="${pageContext.request.contextPath}/system/membermain" method="get">
+					<input type="text" name="search" class="input_box"> 
+					<button class="button2"	type="submit" value="search">조회</button>	
+				</form>
+			</div>
 	  
 	 </div><br>
-	 <br>
+	
 	 
 	 
 
@@ -76,16 +81,18 @@ function memberdelete(a) {
 	
 	
 <!-- 	</form> -->
+
+
 	<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">[10페이지 이전]</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.startPage - pageDTO.pageBlock}%search=${pageDTO.search}">[10페이지 이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${i}">${i}</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${i}%search=${pageDTO.search}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.endPage < pageDTO.pageCount}">
-	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.endPage + pageDTO.pageBlock}">[10페이지 이후]</a>
+	<a href="${pageContext.request.contextPath }/system/membermain?pageNum=${pageDTO.endPage + pageDTO.pageBlock}%search=${pageDTO.search}">[10페이지 이후]</a>
 </c:if>
 	
 <!-- 본문HTML 입력 끝-->

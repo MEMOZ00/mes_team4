@@ -38,10 +38,10 @@ public class SystemDAOImpl implements SystemDAO {
 		return sqlSession.selectList(namespace + ".getsystemlist", pageDTO);
 	}
 	@Override
-	public int getsystemcount() {
+	public int getsystemcount(PageDTO pageDTO) {
 		System.out.println("SystemDAOImpl getsystemcount()");
 		
-		return sqlSession.selectOne(namespace + ".getsystemcount");
+		return sqlSession.selectOne(namespace + ".getsystemcount", pageDTO);
 	}
 	@Override
 	public SystemDTO memberinfo(int emp_no) {

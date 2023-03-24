@@ -18,12 +18,18 @@
 	
 	 <select id="getsystemlist" resultType="com.itwillbs.domain.SystemDTO">
     	select * from employees
+    	<if test="search != null">
+    	where emp_name like CONCAT('%',#{search},'%')
+    	</if>
     	order by emp_no
     	limit #{startRow},#{pageSize}	
     </select>
 	
 	<select id="getsystemcount" resultType="java.lang.Integer">
         select count(*) from employees
+        <if test="search != null">
+    	where emp_name like CONCAT('%',#{search},'%')
+    	</if>
     </select>
     
     <select id="memberinfo" resultType="com.itwillbs.domain.SystemDTO">

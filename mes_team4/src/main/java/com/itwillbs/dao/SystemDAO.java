@@ -13,7 +13,7 @@ public interface SystemDAO {
 	
 	public List<SystemDTO> getsystemlist(PageDTO pageDTO);
 	
-	public int getsystemcount();
+	public int getsystemcount(PageDTO pageDTO);
 	
 	public SystemDTO memberinfo(int emp_no);
 	
