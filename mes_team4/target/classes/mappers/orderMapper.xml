@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 파일이름 대신 namespace 이름을 불러서 사용 -->
+
+<mapper namespace="com.itwillbs.mappers.orderMapper">
+	
+	<!-- ?대신 memberDTO의 멤버변수명 사용 #{id}-->
+<!-- 	<insert id="memberinsertpro"> -->
+<!-- 		insert into employees(emp_no,dept_cd,grade_cd,priv_cd,emp_name,emp_pass)  -->
+<!-- 		values(#{emp_no},#{dept_cd},#{grade_cd},#{priv_cd},#{emp_name},#{emp_pass}) -->
+<!-- 	</insert> -->
+
+<!-- 	<select id="getMaxEmp_no" resultType="java.lang.Integer"> -->
+<!-- 		select max(emp_no) from employees -->
+<!-- 	</select> -->
+	
+	 <select id="getorderlist" resultType="com.itwillbs.domain.OrderDTO">
+    	select * from order_management
+    	<if test="search != null">
+    	where instruction_cd like CONCAT('%',#{search},'%')
+    	</if>
+    	order by order_cd
+    	limit #{startRow},#{pageSize}	
+    </select>
+	
+	<select id="getordercount" resultType="java.lang.Integer">
+        select count(*) from order_management
+        <if test="search != null">
+    	where instruction_cd like CONCAT('%',#{search},'%')
+    	</if>
+    </select>
+    
+<!--     <select id="memberinfo" resultType="com.itwillbs.domain.SystemDTO"> -->
+<!--         select dept_cd,grade_cd,priv_cd,emp_name,emp_pass,emp_no -->
+<!--         from employees -->
+<!--         where emp_no = #{emp_no} -->
+<!--     </select> -->
+    
+<!--     <update id="memberupdatepro"> -->
+<!--     	update employees  -->
+<!--     	set emp_name = #{emp_name}, emp_pass = #{newemp_pass}, dept_cd = #{dept_cd}, grade_cd = #{grade_cd}, priv_cd = #{priv_cd} -->
+<!--     	where emp_no = #{emp_no}	 -->
+<!--     </update> -->
+ 
+<!--   	<delete id="memberdelete"> -->
+<!--   		delete from employees -->
+<!--   		where emp_no = #{emp_no} -->
+<!--     </delete>  -->
+
+    
+<!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
+<!-- 		select * from members  -->
+<!-- 		where id = #{id} and pass = #{pass}  -->
+<!-- 	</select> -->
+
+<!-- 	<select id="selectBlog" parameterType="int" resultType="Blog">
+        select * from Blog where id = #{id}
+    </select>
+    
+    <insert id="">
+    </insert>
+    
+    <update id="">
+    </update>
+    
+    <delete id="">
+    </delete> -->
+    
+</mapper>
