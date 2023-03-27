@@ -59,6 +59,8 @@ $('#insert').submit(function(){
     	alert("권한을 체크하세요");
 		return false;
     }
+    
+    
 setTimeout(function() {
  	 opener.parent.location.reload();
 	 window.close();
