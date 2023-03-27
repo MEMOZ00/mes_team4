@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.SystemDTO;
 import com.itwillbs.service.OrderService;
@@ -42,7 +43,7 @@ public class OrderController {
 			List<SystemDTO> orderList=orderService.getorderlist(pageDTO);
 			
 //			페이징처리
-			int count = orderService.getsystemcount(pageDTO);
+			int count = orderService.getordercount(pageDTO);
 			int pageBlock = 10;
 			int startPage = (currentPage-1)/pageBlock * pageBlock + 1;  
 			int endPage = startPage + pageBlock - 1;
@@ -63,4 +64,31 @@ public class OrderController {
 			return "order/OrderMain";
 
 	}
+	
+	@RequestMapping(value = "/order/orderinsert", method = RequestMethod.GET)
+	public String memberupdate(HttpServletRequest request, Model model) {
+		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
+		System.out.println("OrderController memberupdate()");
+		int order_cd = Integer.parseInt(request.getParameter("order_cd"));
+		OrderDTO orderDTO = orderService.orderinfo(order_cd);
+		model.addAttribute("orderDTO", orderDTO);
+
+		return "order/OrderInsert";
+	}
+	
+	@RequestMapping(value = "/order/orderinsertpro", method = RequestMethod.POST)
+	public String orderinsertpro(OrderDTO orderDTO) {
+		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
+		System.out.println("OrderController orderinsertpro()");
+		
+		
+		// MemberService memberService = new MemberServiceImpl();
+		orderService.orderinsertpro(orderDTO);
+		
+		// 가상주소에서 주소변경 하면서 이동
+		return "redirect:/order/ordermain";
+	}
+	
+	
+	
 }

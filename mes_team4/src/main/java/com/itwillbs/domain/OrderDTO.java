@@ -4,18 +4,18 @@ import java.sql.Date;
 
 public class OrderDTO {
 
-	private String order_cd;
-	private int prodect_cd;
-	private int order_count;
-	private int product_count = (int) (order_count * 1.1);
-	private int consumtion;
-	private int consumtion2 = product_count * consumtion;
-	private String line_cd;
-	private Date deliver_date;
-	private Date procom_date;
-	private String wh_dv;
-	private String wh_dv2;
-	private String instruction_cd;
+	private String order_cd;  // 수주번호
+	private int product_cd;   // 품목코드
+	private int order_count;  // 수주량
+	private int product_count = (int) (order_count * 1.1);  // 생산량
+	private int consumtion;  // 원자재소요량
+	private int consumtion2 = product_count * consumtion;  // 원자재사용량
+	private String line_cd;  // 라인코드
+	private Date deliver_date;  // 납품예정일
+	private Date procom_date;  // 생산완료일(납품예정일 -3일)
+	private String wh_dv;  // 원자재창고
+	private String wh_dv2;  // 재고창고
+	private String instruction_cd;  // 작업지시번호
 	
 	public String getOrder_cd() {
 		return order_cd;
@@ -23,11 +23,11 @@ public class OrderDTO {
 	public void setOrder_cd(String order_cd) {
 		this.order_cd = order_cd;
 	}
-	public int getProdect_cd() {
-		return prodect_cd;
+	public int getProduct_cd() {
+		return product_cd;
 	}
-	public void setProdect_cd(int prodect_cd) {
-		this.prodect_cd = prodect_cd;
+	public void setProduct_cd(int product_cd) {
+		this.product_cd = product_cd;
 	}
 	public int getOrder_count() {
 		return order_count;

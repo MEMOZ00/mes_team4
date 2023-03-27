@@ -32,11 +32,17 @@
     	</if>
     </select>
     
-<!--     <select id="memberinfo" resultType="com.itwillbs.domain.SystemDTO"> -->
-<!--         select dept_cd,grade_cd,priv_cd,emp_name,emp_pass,emp_no -->
-<!--         from employees -->
-<!--         where emp_no = #{emp_no} -->
-<!--     </select> -->
+
+    <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO">
+        select order_cd, product_cd, product_count, line_cd, procom_date, wh_dv, wh_dv2
+        from order_management
+        where order_cd = #{order_cd}
+    </select>
+    
+    <insert id="orderindertpro">
+        insert into order_management(instruction_cd, order_cd, product_cd, product_count, line_cd , procom_date, wh_dv, wh_dv2) 
+		values(#{instruction_cd},#{order_cd},#{product_cd},#{product_count},#{line_cd},#{procom_date},#{wh_dv},#{wh_dv2})
+    </insert>
     
 <!--     <update id="memberupdatepro"> -->
 <!--     	update employees  -->

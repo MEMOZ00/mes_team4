@@ -14,13 +14,13 @@
 <!-- 자바스크립트 입력 시작-->
 <script>
 function orderinsert(a){
-	var win = window.open("${pageContext.request.contextPath }/order/orderinsert?instruction_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
+	var win = window.open("${pageContext.request.contextPath }/order/orderinsert?order_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
 }
 function orderupdate(a) {
-	var win = window.open("${pageContext.request.contextPath }/order/orderupdate?instruction_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
+	var win = window.open("${pageContext.request.contextPath }/order/orderupdate?order_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
 }
 function orderdelete(a) {
-	location.href = '${pageContext.request.contextPath }/order/orderdelete?instruction_cd=' + a; 
+	location.href = '${pageContext.request.contextPath }/order/orderdelete?order_cd=' + a; 
 }
 
 </script>
@@ -53,8 +53,8 @@ function orderdelete(a) {
 					<th>원자재위치</th>
 					<th>제품적재위치</th>
 					<th>추가</th>
-					<th>수정</th>
-					<th>삭제</th>
+<!-- 					<th>수정</th> -->
+<!-- 					<th>삭제</th> -->
 					
 				</tr>
 			</thead>
@@ -72,9 +72,9 @@ function orderdelete(a) {
 						<td>${orderDTO.procom_date}</td>
 						<td>${orderDTO.wh_dv}</td>
 						<td>${orderDTO.wh_dv2}</td>
-						<td><button class="button2" onclick="orderinsert(${orderDTO.instruction_cd})">추가</button></td>
-						<td><button class="button2" onclick="orderupdate(${orderDTO.instruction_cd})">수정</button></td>
-						<td><button class="button2" onclick="orderdelete(${orderDTO.instruction_cd})">삭제</button></td>
+						<td><button class="button2" onclick="orderinsert(${orderDTO.order_cd})">추가</button></td>
+<%-- 						<td><button class="button2" onclick="orderupdate(${orderDTO.order_cd})">수정</button></td> --%>
+<%-- 						<td><button class="button2" onclick="orderdelete(${orderDTO.order_cd})">삭제</button></td> --%>
 
 			  	</c:forEach>
 			</tbody>

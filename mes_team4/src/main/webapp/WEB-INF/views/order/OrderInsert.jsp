@@ -21,44 +21,31 @@ $(document).ready(function(){
   
 $('#insert').submit(function(){
 
-	if($('.emp_name').val()==""){
-		alert("사원명을 입력하세요");
-		$('.emp_name').focus();
+	if($('.product_count').val()==""){
+		alert("생산량을 입력하세요");
+		$('.product_count').focus();
 		return false;
 	}
   //class="pass"
-    if($('.emp_pass').val()==""){
-    	alert("비밀번호를 입력하세요");
-		$('.emp_pass').focus();
+    if($('.line_cd').val()==""){
+    	alert("생산할 라인을 선택하세요");
+		$('.line_cd').focus();
 		return false;
     }
   
-    if($('.emp_pass2').val()==""){
-    	alert("비밀번호2 입력하세요");
-		$('.emp_pass2').focus();
+    if($('.wh_dv').val()==""){
+    	alert("원자재위치를 선택하세요");
+		$('.wh_dv').focus();
 		return false;
     }
     
-    if($('.emp_pass').val() != $('.emp_pass2').val()){
-    	alert("비밀번호 틀림");
-		$('.emp_pass2').focus();
+    if($('.wh_dv2').val()==""){
+    	alert("완제품적재위치를 선택하세요");
+		$('.wh_dv2').focus();
 		return false;
     }
-    
-    if($('.dept_cd').val()==""){
-    	alert("부서를 체크하세요");
-		return false;
-    }
-    
-    if($('.grade_cd').val()==""){
-    	alert("직급을 체크하세요");
-		return false;
-    }
-    
-    if($('.priv_cd').val()==""){
-    	alert("권한을 체크하세요");
-		return false;
-    }
+
+
 setTimeout(function() {
  	 opener.parent.location.reload();
 	 window.close();
@@ -73,66 +60,51 @@ setTimeout(function() {
 	<!-- 본문HTML 입력 시작-->
 	
 	
-	<form action="${pageContext.request.contextPath }/system/memberinsertpro" name="insert" id="insert" method="post">
+	<form action="${pageContext.request.contextPath }/order/orderinsertpro" name="insert" id="insert" method="post">
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자추가</h2>
-					<th>수주코드</th>
-					<th>품목코드</th>
-					<th>수주량</th>
-					<th>생산량</th>
-					<th>소요량</th>
-					<th>납품예정일</th>
-					<th>생산완료일</th>
-					<th>원자재위치</th>
-					<th>제품적재위치</th>
-					
-					
+				
 					<div>
-					<label>사원명</label>
-					<input type="text" name="emp_name" class="emp_name" style="width:150px;height:30px;font-size:18px;" autofocus="autofocus"><br><br>
+					<label>수주코드</label>
+					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.order_cd}" readonly><br><br>
 					</div>
 					<div>
-					<label>비밀번호</label>
-					<input type="password" name="emp_pass" class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<label>품목코드</label>
+					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.product_cd}" readonly><br><br>
 					</div>
 					<div>
-					<label>비밀번호확인</label>
-					<input type="password" name="emp_pass2" class="emp_pass2" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<label>생산량</label>
+					<input type="text" name="product_count" class="product_count" style="width:150px;height:30px;font-size:18px;" max="${orderDTO.product_count}"><br><br>
 					</div>
-					<label>부서</label><br>
 					<div>
-						<input type="radio" name="dept_cd" class="dept_cd" value="11" /> 총무부
-						<input type="radio" name="dept_cd" class="dept_cd" value="22" /> 인사부
-						<input type="radio" name="dept_cd" class="dept_cd" value="33" /> 영업부
-						<input type="radio" name="dept_cd" class="dept_cd" value="44" /> 생산부
-						<input type="radio" name="dept_cd" class="dept_cd" value="55" /> 자재관리부	
+					<label>라인코드</label><br>
+						<input type="radio" name="line_cd" class="line_cd" value="l1" /> 1라인
+						<input type="radio" name="line_cd" class="line_cd" value="l2" /> 2라인
+						<input type="radio" name="line_cd" class="line_cd" value="l3" /> 3라인
 					</div><br>
-					<label>직급</label><br>
 					<div>
-						<input type="radio" name="grade_cd" class="grade_cd" value="대표" /> 대표
-						<input type="radio" name="grade_cd" class="grade_cd" value="이사" /> 이사
-						<input type="radio" name="grade_cd" class="grade_cd" value="부장" /> 부장
-						<input type="radio" name="grade_cd" class="grade_cd" value="과장" /> 과장
-						<input type="radio" name="grade_cd" class="grade_cd" value="대리" /> 대리	
-						<input type="radio" name="grade_cd" class="grade_cd" value="사원" /> 사원	
-					</div><br>
-					<label>권한</label><br>
-					<div>
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="0" /> 기본등록
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="1" /> 사원조회
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="2" /> 사원관리
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" /> 재고조회
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" /> 재고관리 
+					<label>생산완료일</label>
+					<input type="date" name="procom_date" class="procom_date" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.procom_date}" readonly><br><br>
 					</div>
-					
-		
-					
+					<div>
+					<label>원자재위치</label><br>
+						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp1" /> 원자재1창고
+						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp2" /> 원자재2창고
+						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp3" /> 원자재3창고
+					</div>
+					<div>
+					<label>제품적재위치</label><br>
+						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p1" /> 완제품1창고
+						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p2" /> 완제품2창고
+						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p3" /> 완제품3창고
+					</div>
+
 			</fieldset>
 		
 	</form>
 <div style="text-align:center">
-		<button class="button2" form="insert" onclick="submit">사용자추가</button>
+		<button class="button2" form="insert" onclick="submit">작업지시추가</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 
