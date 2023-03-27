@@ -44,14 +44,10 @@ function orderdelete(a) {
 				<tr style="text-align: center; font-size: 0.9rem">
 					<th>수주코드</th>
 					<th>품목코드</th>
-					<th>수주량</th>
-					<th>생산량</th>
-					<th>원자재소요량</th>
+					<th>지시수량</th>
 					<th>라인코드</th>
-					<th>납품예정일</th>
-					<th>생산완료일</th>
-					<th>원자재위치</th>
-					<th>제품적재위치</th>
+					<th>생산지시일자</th>
+					<th>작업지시상태</th>
 					<th>추가</th>
 <!-- 					<th>수정</th> -->
 <!-- 					<th>삭제</th> -->
@@ -63,15 +59,11 @@ function orderdelete(a) {
 				
 				<c:forEach var ="OrderDTO" items="${orderList}">
 					<tr><td>${orderDTO.order_cd}</td>
-						<td>${orderDTO.prodect_cd}</td>
-						<td>${orderDTO.order_count}</td>
-						<td>${orderDTO.product_count}</td>
-						<td>${orderDTO.consumtion}</td>
+						<td>${orderDTO.product_cd}</td>
+						<td>${orderDTO.instruction_qt}</td>
 						<td>${orderDTO.line_cd}</td>
-						<td>${orderDTO.deliver_date}</td>
-						<td>${orderDTO.procom_date}</td>
-						<td>${orderDTO.wh_dv}</td>
-						<td>${orderDTO.wh_dv2}</td>
+						<td>${orderDTO.instruction_date}</td>
+						<td>${orderDTO.instruction_state}</td>
 						<td><button class="button2" onclick="orderinsert(${orderDTO.order_cd})">추가</button></td>
 <%-- 						<td><button class="button2" onclick="orderupdate(${orderDTO.order_cd})">수정</button></td> --%>
 <%-- 						<td><button class="button2" onclick="orderdelete(${orderDTO.order_cd})">삭제</button></td> --%>

@@ -50,8 +50,7 @@ public class OrderServiceImpl implements OrderService{
 			//게시판 글 있음 MaxNum()+1
 			orderDTO.setInstruction_cd("I" + orderDTO.getOrder_cd() + "_" + "num+1");
 		}
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-		orderDTO.setProcom_date(orderDTO.getDeliver_date());
+	
 		orderDAO.orderinsertpro(orderDTO);
 		
 	}

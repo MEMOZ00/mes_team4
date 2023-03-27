@@ -33,17 +33,7 @@ $('#insert').submit(function(){
 		return false;
     }
   
-    if($('.wh_dv').val()==""){
-    	alert("원자재위치를 선택하세요");
-		$('.wh_dv').focus();
-		return false;
-    }
-    
-    if($('.wh_dv2').val()==""){
-    	alert("완제품적재위치를 선택하세요");
-		$('.wh_dv2').focus();
-		return false;
-    }
+
 
 
 setTimeout(function() {
@@ -64,7 +54,7 @@ setTimeout(function() {
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자추가</h2>
-				
+					<input type="hidden" name="instruction_cd" class="instruction_cd" value="${orderDTO.instruction_cd}">
 					<div>
 					<label>수주코드</label>
 					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.order_cd}" readonly><br><br>
@@ -74,8 +64,8 @@ setTimeout(function() {
 					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.product_cd}" readonly><br><br>
 					</div>
 					<div>
-					<label>생산량</label>
-					<input type="text" name="product_count" class="product_count" style="width:150px;height:30px;font-size:18px;" max="${orderDTO.product_count}"><br><br>
+					<label>지시수량</label>
+					<input type="text" name="instruction_qt" class="instruction_qt" style="width:150px;height:30px;font-size:18px;" max="${orderDTO.instruction_qt}"><br><br>
 					</div>
 					<div>
 					<label>라인코드</label><br>
@@ -84,22 +74,15 @@ setTimeout(function() {
 						<input type="radio" name="line_cd" class="line_cd" value="l3" /> 3라인
 					</div><br>
 					<div>
-					<label>생산완료일</label>
-					<input type="date" name="procom_date" class="procom_date" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.procom_date}" readonly><br><br>
+					<label>생산지시일자</label>
+					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" value="sysdate" readonly><br><br>
 					</div>
 					<div>
-					<label>원자재위치</label><br>
-						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp1" /> 원자재1창고
-						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp2" /> 원자재2창고
-						<input type="checkbox" class="wh_dv" name="wh_dv" value="rp3" /> 원자재3창고
+					<label>작업지시상태</label><br>
+						<input type="radio" name="instruction_state" class="instruction_state" value="off" />대기
+						<input type="radio" name="instruction_state" class="instruction_state" value="on" />지시
 					</div>
-					<div>
-					<label>제품적재위치</label><br>
-						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p1" /> 완제품1창고
-						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p2" /> 완제품2창고
-						<input type="checkbox" class="wh_dv2" name="wh_dv2" value="p3" /> 완제품3창고
-					</div>
-
+					
 			</fieldset>
 		
 	</form>
