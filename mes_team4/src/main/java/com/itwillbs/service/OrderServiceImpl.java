@@ -33,10 +33,10 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 //	@Override
-//	public OrderDTO orderinfo(int instruction_cd) {
-//		System.out.println("OrderServiceImpl orderinfo()");
+//	public OMDTO ominfo(int order_cd) {
+//		System.out.println("OrderServiceImpl ominfo()");
 //		
-//		return orderDAO.orderinfo(instruction_cd);
+//		return omDAO.ominfo(order_cd);
 //	}
 
 	@Override
@@ -54,8 +54,22 @@ public class OrderServiceImpl implements OrderService{
 		orderDAO.orderinsertpro(orderDTO);
 		
 	}
+
+	@Override
+	public OrderDTO orderinfo(int instruction_cd) {
+		System.out.println("OrderServiceImpl orderinfo()");
+		
+		return orderDAO.orderinfo(instruction_cd);
+	}
+
+	@Override
+	public void orderdelete(int instruction_cd) {
+		System.out.println("OrderServiceImpl orderdelete()");
+		
+		orderDAO.orderdelete(instruction_cd);
+	}
 	
 	
 	
-	
-}
+}	
+

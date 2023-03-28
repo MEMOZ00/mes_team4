@@ -29,16 +29,28 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectOne(namespace + ".getordercount", pageDTO);
 	}
 //	@Override
-//	public OrderDTO orderinfo(int instruction_cd) {
-//		System.out.println("OrderDAOImpl orderinfo()");
+//	public OMDTO ominfo(int order_cd) {
+//		System.out.println("OrderDAOImpl ominfo()");
 //		
-//		return sqlSession.selectOne(namespace + ".orderinfo", instruction_cd);
+//		return sqlSession.selectOne(namespace + ".ominfo", order_cd);
 //	}
 	@Override
 	public void orderinsertpro(OrderDTO orderDTO) {
 		System.out.println("OrderDAOImpl orderinsertpro()");
 		
 		sqlSession.insert(namespace + ".orderinsertpro", orderDTO);
+	}
+	@Override
+	public OrderDTO orderinfo(int instruction_cd) {
+		System.out.println("OrderDAOImpl orderinfo()");
+		
+		return sqlSession.selectOne(namespace + ".orderinfo", instruction_cd);
+	}
+	@Override
+	public void orderdelete(int instruction_cd) {
+		System.out.println("OrderDAOImpl orderdelete()");
+		
+		sqlSession.delete(namespace + ".orderdelete", instruction_cd);
 	}
 	
 	

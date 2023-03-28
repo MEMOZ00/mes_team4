@@ -17,7 +17,7 @@
 <!-- 	</select> -->
 	
 	 <select id="getorderlist" resultType="com.itwillbs.domain.OrderDTO">
-    	select * from order_management
+    	select * from order
     	<if test="search != null">
     	where instruction_cd like CONCAT('%',#{search},'%')
     	</if>
@@ -26,7 +26,7 @@
     </select>
 	
 	<select id="getordercount" resultType="java.lang.Integer">
-        select count(*) from order_management
+        select count(*) from order
         <if test="search != null">
     	where instruction_cd like CONCAT('%',#{search},'%')
     	</if>
@@ -45,23 +45,25 @@
 <!--         where order_cd = #{order_cd} -->
 <!--     </select> -->
     
-    <insert id="orderindertpro">
-        insert into order_management(instruction_cd, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
+    <insert id="orderinsertpro">
+        insert into order(instruction_cd, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
 		values(#{instruction_cd},#{order_cd},#{product_cd},#{instruction_qt},#{line_cd},#{instruction_date},#{instruction_state})
     </insert>
     
+    <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO">
+        select *
+        from order
+        where instruction_cd = #{instruction_cd}
+    </select>
     
+    <delete id="orderdelete">
+  		delete from order
+  		where instruction_cd = #{instruction_cd}
+    </delete>
     
-<!--     <update id="memberupdatepro"> -->
-<!--     	update employees  -->
-<!--     	set emp_name = #{emp_name}, emp_pass = #{newemp_pass}, dept_cd = #{dept_cd}, grade_cd = #{grade_cd}, priv_cd = #{priv_cd} -->
-<!--     	where emp_no = #{emp_no}	 -->
-<!--     </update> -->
+
  
-<!--   	<delete id="memberdelete"> -->
-<!--   		delete from employees -->
-<!--   		where emp_no = #{emp_no} -->
-<!--     </delete>  -->
+ 
 
     
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->

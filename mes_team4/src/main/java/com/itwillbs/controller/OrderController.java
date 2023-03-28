@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.itwillbs.domain.OMDTO;
 import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.SystemDTO;
 import com.itwillbs.service.OrderService;
 
 @Controller
@@ -118,7 +117,7 @@ public class OrderController {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("OrderController memberupdate()");
 		int order_cd = Integer.parseInt(request.getParameter("order_cd"));
-		OMDTO omDTO = omService.orderinfo(order_cd);
+		OMDTO omDTO = omService.ominfo(order_cd);
 		model.addAttribute("omDTO", omDTO);
 
 		return "order/OrderInsert";
@@ -137,6 +136,26 @@ public class OrderController {
 		return "redirect:/order/ordermain";
 	}
 	
+	@RequestMapping(value = "/order/orderupdate", method = RequestMethod.GET)
+	public String orderupdate(HttpServletRequest request, Model model) {
+		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
+		System.out.println("SystemController memberupdate()");
+		int instruction_cd = Integer.parseInt(request.getParameter("instruction_cd"));
+		OrderDTO orderDTO = orderService.orderinfo(instruction_cd);
+		model.addAttribute("orderDTO", orderDTO);
+
+		return "/order/OrderUpdate";
+	}
+	
+	@RequestMapping(value = "/order/orderdelete", method = RequestMethod.GET)
+	public String memberdelete(HttpServletRequest request) {
+		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
+		System.out.println("SystemController memberupdate()");
+		int instruction_cd = Integer.parseInt(request.getParameter("instruction_cd"));
+			orderService.orderdelete(instruction_cd);
+
+		 return "redirect:/order/ordermain";
+	}
 	
 	
 }
