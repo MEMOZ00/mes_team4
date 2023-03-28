@@ -49,6 +49,10 @@
   		where emp_no = #{emp_no}
     </delete> 
 
+	<select id="userCheck" resultType="com.itwillbs.domain.SystemDTO">
+        select * from employees
+		where emp_no = #{emp_no} and emp_pass = #{emp_pass}
+    </select>
     
 <!-- 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO"> -->
 <!-- 		select * from members  -->

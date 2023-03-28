@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -119,5 +120,41 @@ public class SystemController {
 		 return "redirect:/system/membermain";
 	}
 
+	@RequestMapping(value = "/system/memberlogin", method = RequestMethod.GET)
+	public String memberlogin() {
+		// 처리작업
+		
+		// 가상주소에서 주소변경 없이 이동
+		return "system/MemberLogin";
+	}
 
+	@RequestMapping(value = "/system/memberloginpro", method = RequestMethod.POST)
+	public String loginPro(SystemDTO systemDTO, HttpSession session) {
+		System.out.println("MemberController loginPro()");
+		// 리턴할형 MemberDTO userCheck(MemberDTO memberDTO) 메서드 정의
+		// 메서드 호출
+		SystemDTO systemDTO2=systemService.userCheck(systemDTO);
+		if(systemDTO2!=null) {
+			//아이디 비밀번호 일치
+			//세션값 생성 "id",값
+			session.setAttribute("enp_no", systemDTO.getEmp_no());
+//			주소줄 변경하면서 이동
+			return "redirect:/home";
+		}else {
+			//아이디 비밀번호 틀림  뒤로이동  member/msg
+//			주소줄 변경없이 이동
+//			/WEB-INF/views/member/msg.jsp
+			return "redirect:/home";
+		}
+	}
+	
+	@RequestMapping(value = "/system/memberlogout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		//세션초기화
+		session.invalidate();
+		
+//		주소줄 변경하면서 이동
+		return "redirect:/home";
+	}
+	
 }

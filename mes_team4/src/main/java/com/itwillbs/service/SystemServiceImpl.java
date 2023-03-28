@@ -73,6 +73,13 @@ public class SystemServiceImpl implements SystemService{
 		
 	}
 
+	@Override
+	public SystemDTO userCheck(SystemDTO systemDTO) {
+		System.out.println("SystemServiceImpl userCheck()");
+		
+		return systemDAO.userCheck(systemDTO);
+	}
+
 
 
 	

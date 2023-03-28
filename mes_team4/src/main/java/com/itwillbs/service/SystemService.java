@@ -19,6 +19,8 @@ public interface SystemService {
 
 	public void memberdelete(int emp_no);
 
+	public SystemDTO userCheck(SystemDTO systemDTO);
+
 	
 
 }
