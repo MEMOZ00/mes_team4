@@ -4,15 +4,15 @@ import java.util.List;
 
 import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.SystemDTO;
+
 
 public interface OrderService {
 
-	public List<SystemDTO> getorderlist(PageDTO pageDTO);
+	public List<OrderDTO> getorderlist(PageDTO pageDTO);
 
 	public int getordercount(PageDTO pageDTO);
 
-	public OrderDTO orderinfo(int instruction_cd);
+//	public OrderDTO orderinfo(int instruction_cd);
 
 	public void orderinsertpro(OrderDTO orderDTO);
 

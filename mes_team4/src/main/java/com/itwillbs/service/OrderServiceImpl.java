@@ -19,7 +19,7 @@ public class OrderServiceImpl implements OrderService{
 	private OrderDAO orderDAO;
 
 	@Override
-	public List<SystemDTO> getorderlist(PageDTO pageDTO) {
+	public List<OrderDTO> getorderlist(PageDTO pageDTO) {
 		System.out.println("OrderServiceImpl getorderlist()");
 		
 		return orderDAO.getorderlist(pageDTO);
@@ -32,12 +32,12 @@ public class OrderServiceImpl implements OrderService{
 		return orderDAO.getordercount(pageDTO);
 	}
 
-	@Override
-	public OrderDTO orderinfo(int instruction_cd) {
-		System.out.println("OrderServiceImpl orderinfo()");
-		
-		return orderDAO.orderinfo(instruction_cd);
-	}
+//	@Override
+//	public OrderDTO orderinfo(int instruction_cd) {
+//		System.out.println("OrderServiceImpl orderinfo()");
+//		
+//		return orderDAO.orderinfo(instruction_cd);
+//	}
 
 	@Override
 	public void orderinsertpro(OrderDTO orderDTO) {

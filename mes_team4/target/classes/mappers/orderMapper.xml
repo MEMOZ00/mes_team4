@@ -32,17 +32,25 @@
     	</if>
     </select>
     
+    
+    
+<!--     OMDTO관련 sql문 더 들어와야함 -->
+    
+    
+    
 
-    <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO">
-        select order_cd, product_cd, product_count, line_cd, procom_date, wh_dv, wh_dv2
-        from order_management
-        where order_cd = #{order_cd}
-    </select>
+<!--     <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO"> -->
+<!--         select order_cd, product_cd, product_count, line_cd, procom_date, wh_dv, wh_dv2 -->
+<!--         from order_management -->
+<!--         where order_cd = #{order_cd} -->
+<!--     </select> -->
     
     <insert id="orderindertpro">
-        insert into order_management(instruction_cd, order_cd, product_cd, product_count, line_cd , procom_date, wh_dv, wh_dv2) 
-		values(#{instruction_cd},#{order_cd},#{product_cd},#{product_count},#{line_cd},#{procom_date},#{wh_dv},#{wh_dv2})
+        insert into order_management(instruction_cd, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
+		values(#{instruction_cd},#{order_cd},#{product_cd},#{instruction_qt},#{line_cd},#{instruction_date},#{instruction_state})
     </insert>
+    
+    
     
 <!--     <update id="memberupdatepro"> -->
 <!--     	update employees  -->

@@ -14,6 +14,9 @@
 <!-- 자바스크립트 입력 시작-->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
+
+document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+
 $(document).ready(function(){
 //	alert("준비");
 //submit 버튼을 클릭했을때 폼태그 전송되어지면 이벤트 onsubmit()
@@ -21,9 +24,9 @@ $(document).ready(function(){
   
 $('#insert').submit(function(){
 
-	if($('.product_count').val()==""){
-		alert("생산량을 입력하세요");
-		$('.product_count').focus();
+	if($('.instruction_qt').val()==""){
+		alert("생산지시수량을 입력하세요");
+		$('.instruction_qt').focus();
 		return false;
 	}
   //class="pass"
@@ -33,7 +36,11 @@ $('#insert').submit(function(){
 		return false;
     }
   
-
+    if($('.instruction_state').val()==""){
+    	alert("작업지사상태를 선택하세요");
+		$('.instruction_state').focus();
+		return false;
+    }
 
 
 setTimeout(function() {
@@ -54,18 +61,18 @@ setTimeout(function() {
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자추가</h2>
-					<input type="hidden" name="instruction_cd" class="instruction_cd" value="${orderDTO.instruction_cd}">
+		
 					<div>
 					<label>수주코드</label>
-					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.order_cd}" readonly><br><br>
+					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${omDTO.order_cd}" readonly><br><br>
 					</div>
 					<div>
 					<label>품목코드</label>
-					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.product_cd}" readonly><br><br>
+					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${omDTO.product_cd}" readonly><br><br>
 					</div>
 					<div>
 					<label>지시수량</label>
-					<input type="text" name="instruction_qt" class="instruction_qt" style="width:150px;height:30px;font-size:18px;" max="${orderDTO.instruction_qt}"><br><br>
+					<input type="text" name="instruction_qt" class="instruction_qt" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>라인코드</label><br>
@@ -75,7 +82,7 @@ setTimeout(function() {
 					</div><br>
 					<div>
 					<label>생산지시일자</label>
-					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" value="sysdate" readonly><br><br>
+					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" id="currentDate" readonly><br><br>
 					</div>
 					<div>
 					<label>작업지시상태</label><br>
