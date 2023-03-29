@@ -1,3 +1,4 @@
+
 package com.itwillbs.controller;
 
 import java.util.List;
@@ -85,10 +86,10 @@ public class OrderController {
 			pageDTO.setCurrentPage(currentPage);
 			pageDTO.setSearch(search);
 			
-			List<OMDTO> omList=omService.getorderlist(pageDTO);
+			List<OMDTO> omList=orderService.getomlist(pageDTO);
 			
 //			페이징처리
-			int count = omService.getordercount(pageDTO);
+			int count = orderService.getomcount(pageDTO);
 			int pageBlock = 10;
 			int startPage = (currentPage-1)/pageBlock * pageBlock + 1;  
 			int endPage = startPage + pageBlock - 1;
@@ -117,7 +118,7 @@ public class OrderController {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("OrderController memberupdate()");
 		int order_cd = Integer.parseInt(request.getParameter("order_cd"));
-		OMDTO omDTO = omService.ominfo(order_cd);
+		OMDTO omDTO = orderService.ominfo(order_cd);
 		model.addAttribute("omDTO", omDTO);
 
 		return "order/OrderInsert";
@@ -139,9 +140,9 @@ public class OrderController {
 	@RequestMapping(value = "/order/orderupdate", method = RequestMethod.GET)
 	public String orderupdate(HttpServletRequest request, Model model) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
-		System.out.println("SystemController memberupdate()");
-		int instruction_cd = Integer.parseInt(request.getParameter("instruction_cd"));
-		OrderDTO orderDTO = orderService.orderinfo(instruction_cd);
+		System.out.println("SystemController orderupdate()");
+		String instruction_code = request.getParameter("instruction_code");
+		OrderDTO orderDTO = orderService.orderinfo(instruction_code);
 		model.addAttribute("orderDTO", orderDTO);
 
 		return "/order/OrderUpdate";
@@ -151,8 +152,8 @@ public class OrderController {
 	public String memberdelete(HttpServletRequest request) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("SystemController memberupdate()");
-		int instruction_cd = Integer.parseInt(request.getParameter("instruction_cd"));
-			orderService.orderdelete(instruction_cd);
+		String instruction_code = request.getParameter("instruction_code");
+			orderService.orderdelete(instruction_code);
 
 		 return "redirect:/order/ordermain";
 	}

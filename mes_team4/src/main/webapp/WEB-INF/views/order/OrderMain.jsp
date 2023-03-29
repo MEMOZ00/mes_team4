@@ -14,15 +14,14 @@
 <!-- 자바스크립트 입력 시작-->
 <script>
 function orderinsert(){
-	var win = window.open("${pageContext.request.contextPath }order/orderinsertform", "_blank", "width=570, height=570, top=200, left=200");
+	var win = window.open("${pageContext.request.contextPath }/order/orderinsertform", "_blank", "width=570, height=570, top=200, left=200");
 }
-function orderupdate(a) {
-	var win = window.open("${pageContext.request.contextPath }/order/orderupdate?instruction_code=" + a, "_blank", "width=570, height=570, top=200, left=200");
+function orderupdate(b) {
+	var win = window.open("${pageContext.request.contextPath }/order/orderupdate?instruction_code=" + b, "_blank", "width=570, height=570, top=200, left=200");
 }
-function orderdelete(a) {
-	location.href = '${pageContext.request.contextPath }/order/orderdelete?instruction_code=' + a; 
+function orderdelete(b) {
+	location.href = '${pageContext.request.contextPath }/order/orderdelete?instruction_code=' + b; 
 }
-
 </script>
 <!-- 자바스크립트 입력 끝-->
 
@@ -32,7 +31,7 @@ function orderdelete(a) {
 	<h2>작업지시관리</h2>
 	<div class="wrap2">
 	<button class="button2" onclick="orderinsert()">추가</button>
-	 </div><br>
+	 </div><br><br>
 
 		<input type="hidden" value="">
 		
@@ -43,6 +42,7 @@ function orderdelete(a) {
 					<th>작업지시코드</th>
 					<th>품목코드</th>
 					<th>지시수량</th>
+					<th>소요량</th>
 					<th>라인코드</th>
 					<th>생산지시일자</th>
 					<th>작업지시상태</th>
@@ -53,17 +53,18 @@ function orderdelete(a) {
 			
 			<tbody>
 				
-				<c:forEach var ="OrderDTO" items="${orderList}">
+				<c:forEach var ="orderDTO" items="${orderList}">
 					<tr><td>${orderDTO.order_cd}</td>
 						<td>${orderDTO.instruction_code}</td>
 						<td>${orderDTO.product_cd}</td>
 						<td>${orderDTO.instruction_qt}</td>
+						<td>${orderDTO.instruction_qt}</td>
 						<td>${orderDTO.line_cd}</td>
 						<td>${orderDTO.instruction_date}</td>
 						<td>${orderDTO.instruction_state}</td>
-						<td><button class="button2" onclick="orderupdate(${orderDTO.instruction_code})">수정</button></td>
-						<td><button class="button2" onclick="orderdelete(${orderDTO.instruction_code})">삭제</button></td>
-			  	</c:forEach>
+						<td><button onclick="orderupdate('${orderDTO.instruction_code}');">수정</button></td>
+						<td><button onclick="orderdelete('${orderDTO.instruction_code}');">삭제</button></td></tr>
+				</c:forEach>
 			</tbody>
 		</table>
 

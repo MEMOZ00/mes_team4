@@ -75,7 +75,7 @@ $('#update').submit(function(){
   setTimeout(function() {
 	  	 opener.parent.location.reload();
 	 	 window.close();
-	  }, 100);
+	  }, 1000);
 });//
 });
 
@@ -109,11 +109,11 @@ $('#update').submit(function(){
 					</div>
 					<label>부서</label><br>
 					<div>
-						<input type="radio" name="dept_cd" class="dept_cd" value="총무부" ${systemDTO.dept_cd eq '11' ? 'checked':''}/> 총무부
-						<input type="radio" name="dept_cd" class="dept_cd" value="인사부" ${systemDTO.dept_cd eq '22' ? 'checked':''}/> 인사부
-						<input type="radio" name="dept_cd" class="dept_cd" value="영업부" ${systemDTO.dept_cd eq '33' ? 'checked':''}/> 영업부
-						<input type="radio" name="dept_cd" class="dept_cd" value="생산부" ${systemDTO.dept_cd eq '44' ? 'checked':''}/> 생산부
-						<input type="radio" name="dept_cd" class="dept_cd" value="자재관리부" ${systemDTO.dept_cd eq '55' ? 'checked':''}/> 자재관리부	
+						<input type="radio" name="dept_cd" class="dept_cd" value="총무부" ${systemDTO.dept_cd eq '총무부' ? 'checked':''}/> 총무부
+						<input type="radio" name="dept_cd" class="dept_cd" value="인사부" ${systemDTO.dept_cd eq '인사부' ? 'checked':''}/> 인사부
+						<input type="radio" name="dept_cd" class="dept_cd" value="영업부" ${systemDTO.dept_cd eq '영업부' ? 'checked':''}/> 영업부
+						<input type="radio" name="dept_cd" class="dept_cd" value="생산부" ${systemDTO.dept_cd eq '생산부' ? 'checked':''}/> 생산부
+						<input type="radio" name="dept_cd" class="dept_cd" value="자재관리부" ${systemDTO.dept_cd eq '자재관리부' ? 'checked':''}/> 자재관리부	
 					</div><br>
 					<label>직급</label><br>
 					<div>

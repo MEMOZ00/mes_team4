@@ -60,14 +60,13 @@ setTimeout(function() {
 					<input type="password" name="emp_pass" class="emp_pass" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 						
-						<div style="text-align:center">
+		<div style="text-align:center">
 		<button class="button2" form="login" onclick="submit">로그인</button>
-	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 			</fieldset>
 		
 	</form>
-
+		
 
 	<!-- 본문HTML 입력 끝-->
 </div>

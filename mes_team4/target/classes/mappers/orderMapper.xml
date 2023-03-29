@@ -16,53 +16,57 @@
 <!-- 		select max(emp_no) from employees -->
 <!-- 	</select> -->
 	
-	 <select id="getorderlist" resultType="com.itwillbs.domain.OrderDTO">
-    	select * from order
+	 <select id="getomlist" resultType="com.itwillbs.domain.OMDTO">
+    	select * from order_management
     	<if test="search != null">
-    	where instruction_cd like CONCAT('%',#{search},'%')
+    	where order_cd like CONCAT('%',#{search},'%')
     	</if>
-    	order by order_cd
     	limit #{startRow},#{pageSize}	
     </select>
 	
-	<select id="getordercount" resultType="java.lang.Integer">
-        select count(*) from order
+	<select id="getomcount" resultType="java.lang.Integer">
+        select count(*) from order_management
         <if test="search != null">
-    	where instruction_cd like CONCAT('%',#{search},'%')
+    	where order_cd like CONCAT('%',#{search},'%')
     	</if>
     </select>
-    
-    
-    
-<!--     OMDTO관련 sql문 더 들어와야함 -->
-    
-    
-    
 
-<!--     <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO"> -->
-<!--         select order_cd, product_cd, product_count, line_cd, procom_date, wh_dv, wh_dv2 -->
-<!--         from order_management -->
-<!--         where order_cd = #{order_cd} -->
-<!--     </select> -->
+    <select id="ominfo" resultType="com.itwillbs.domain.OMDTO">
+        select *
+        from order_management
+        where order_cd = #{order_cd}
+    </select>
     
     <insert id="orderinsertpro">
-        insert into order(instruction_cd, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
-		values(#{instruction_cd},#{order_cd},#{product_cd},#{instruction_qt},#{line_cd},#{instruction_date},#{instruction_state})
+        insert into order(instruction_code, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
+		values(#{instruction_code},#{order_cd},#{product_cd},#{instruction_qt},#{line_cd},#{instruction_date},#{instruction_state})
     </insert>
     
     <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO">
         select *
-        from order
-        where instruction_cd = #{instruction_cd}
+        from `order`
+        where instruction_code = #{instruction_code}
     </select>
     
     <delete id="orderdelete">
-  		delete from order
-  		where instruction_cd = #{instruction_cd}
+  		delete from `order`
+  		where instruction_code = #{instruction_code}
     </delete>
     
-
- 
+ 	 <select id="getorderlist" resultType="com.itwillbs.domain.OrderDTO">
+    	select * from `order`
+    	<if test="search != null">
+    	where order_cd like CONCAT('%',#{search},'%')
+    	</if>
+    	limit #{startRow},#{pageSize}	
+    </select>
+	
+	<select id="getordercount" resultType="java.lang.Integer">
+        select count(*) from `order`
+        <if test="search != null">
+    	where order_cd like CONCAT('%',#{search},'%')
+    	</if>
+    </select>
  
 
     

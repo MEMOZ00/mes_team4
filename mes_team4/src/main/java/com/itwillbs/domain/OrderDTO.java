@@ -6,12 +6,12 @@ public class OrderDTO {
 
 	private String order_cd;  // 수주코드
 	private int product_cd;   // 품목코드
-	private int order_count;  // 수주량
-	private int instruction_qt = (int) (order_count * 1.01);  // 지시수량
+
+	private int instruction_qt;  // 지시수량
 	private String line_cd;  // 라인코드
 	private Date instruction_date;  // 작업지시일자
 	private String instruction_state;  // 작업지시상태
-	private String instruction_cd;  // 작업지시코드
+	private String instruction_code;  // 작업지시코드
 	
 	public String getOrder_cd() {
 		return order_cd;
@@ -24,12 +24,6 @@ public class OrderDTO {
 	}
 	public void setProduct_cd(int product_cd) {
 		this.product_cd = product_cd;
-	}
-	public int getOrder_count() {
-		return order_count;
-	}
-	public void setOrder_count(int order_count) {
-		this.order_count = order_count;
 	}
 	public int getInstruction_qt() {
 		return instruction_qt;
@@ -55,11 +49,11 @@ public class OrderDTO {
 	public void setInstruction_state(String instruction_state) {
 		this.instruction_state = instruction_state;
 	}
-	public String getInstruction_cd() {
-		return instruction_cd;
+	public String getInstruction_code() {
+		return instruction_code;
 	}
-	public void setInstruction_cd(String instruction_cd) {
-		this.instruction_cd = instruction_cd;
+	public void setInstruction_code(String instruction_code) {
+		this.instruction_code = instruction_code;
 	}
 	
 

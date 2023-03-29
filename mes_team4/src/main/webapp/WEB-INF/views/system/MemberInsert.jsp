@@ -45,26 +45,10 @@ $('#insert').submit(function(){
 		return false;
     }
     
-    if($('.dept_cd').val()==""){
-    	alert("부서를 체크하세요");
-		return false;
-    }
-    
-    if($('.grade_cd').val()==""){
-    	alert("직급을 체크하세요");
-		return false;
-    }
-    
-    if($('.priv_cd').val()==""){
-    	alert("권한을 체크하세요");
-		return false;
-    }
-    
-    
-setTimeout(function() {
- 	 opener.parent.location.reload();
-	 window.close();
- }, 100);
+    setTimeout(function() {
+	  	 opener.parent.location.reload();
+	 	 window.close();
+	  }, 1000);
 
 });//
 });
@@ -93,11 +77,11 @@ setTimeout(function() {
 					</div>
 					<label>부서</label><br>
 					<div>
-						<input type="radio" name="dept_cd" class="dept_cd" value="11" /> 총무부
-						<input type="radio" name="dept_cd" class="dept_cd" value="22" /> 인사부
-						<input type="radio" name="dept_cd" class="dept_cd" value="33" /> 영업부
-						<input type="radio" name="dept_cd" class="dept_cd" value="44" /> 생산부
-						<input type="radio" name="dept_cd" class="dept_cd" value="55" /> 자재관리부	
+						<input type="radio" name="dept_cd" class="dept_cd" id="11" value="11" checked="checked"/> 총무부
+						<input type="radio" name="dept_cd" class="dept_cd" id="22" value="22" /> 인사부
+						<input type="radio" name="dept_cd" class="dept_cd" id="33" value="33" /> 영업부
+						<input type="radio" name="dept_cd" class="dept_cd" id="44" value="44" /> 생산부
+						<input type="radio" name="dept_cd" class="dept_cd" id="55" value="55" /> 자재관리부	
 					</div><br>
 					<label>직급</label><br>
 					<div>
@@ -106,12 +90,12 @@ setTimeout(function() {
 						<input type="radio" name="grade_cd" class="grade_cd" value="부장" /> 부장
 						<input type="radio" name="grade_cd" class="grade_cd" value="과장" /> 과장
 						<input type="radio" name="grade_cd" class="grade_cd" value="대리" /> 대리	
-						<input type="radio" name="grade_cd" class="grade_cd" value="사원" /> 사원	
+						<input type="radio" name="grade_cd" class="grade_cd" value="사원" checked="checked"/> 사원	
 					</div><br>
 					<label>권한</label><br>
 					<div>
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="0" /> 기본등록
-						<input type="checkbox" class="priv_cd" name="priv_cd" value="1" /> 사원조회
+						<input type="checkbox" class="priv_cd" name="priv_cd" value="1" checked="checked"/> 사원조회
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="2" /> 사원관리
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="3" /> 재고조회
 						<input type="checkbox" class="priv_cd" name="priv_cd" value="4" /> 재고관리 

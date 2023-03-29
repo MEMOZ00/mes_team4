@@ -34,7 +34,7 @@ function memberdelete(a) {
 	
 	  <button class="button2" onclick="memberinsert()">추가</button><br>
 
-	 </div><br><br><br>
+	 </div><br><br>
 	
 	 
 	 
@@ -65,8 +65,8 @@ function memberdelete(a) {
 						<td>${systemDTO.dept_cd}</td>
 						<td>${systemDTO.grade_cd}</td>
 						<td>${systemDTO.priv_cd}</td>
-						<td><button onclick="memberupdate(${systemDTO.emp_no})">수정</button></td>
-						<td><button onclick="memberdelete(${systemDTO.emp_no})">삭제</button></td>
+						<td><button onclick="memberupdate('${systemDTO.emp_no}');">수정</button></td>
+						<td><button onclick="memberdelete('${systemDTO.emp_no}');">삭제</button></td></tr>
 
 			  	</c:forEach>
 			</tbody>
