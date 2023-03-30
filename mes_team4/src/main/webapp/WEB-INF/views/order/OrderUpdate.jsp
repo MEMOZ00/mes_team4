@@ -14,13 +14,9 @@
 <!-- 자바스크립트 입력 시작-->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
-//	alert("준비");
-//submit 버튼을 클릭했을때 폼태그 전송되어지면 이벤트 onsubmit()
-// id="join" 폼태그 표시 => 전송
   
-$('#update').submit(function(){
+	$('#orderupdate').submit(function(){
 	
 	if($('.instruction_qt').val()==""){
 		alert("지시수량을 입력하세요");
@@ -28,8 +24,7 @@ $('#update').submit(function(){
 		return false;
 	}
   //class="pass"
-
-  
+ 
   if($('.instruction_date').val()==""){
     	alert("생산지시일자를 선택하세요");
 		$('.instruction_date').focus();
@@ -49,9 +44,10 @@ $('#update').submit(function(){
 
 <div id="contents">
 	<!-- 본문HTML 입력 시작-->
+
+
+	<form action="${pageContext.request.contextPath }/order/orderupdatepro" name="orderupdate" id="orderupdate" method="post">
 	
-	
-	<form action="${pageContext.request.contextPath }/order/orderupdatepro" name="update" id="update" method="post">
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >작업지시수정</h2>
@@ -76,9 +72,10 @@ $('#update').submit(function(){
 						<input type="radio" name="line_cd" class="line_cd" value="fl004" ${orderDTO.line_cd eq 'fl004' ? 'checked':''}/> 4라인
 						<input type="radio" name="line_cd" class="line_cd" value="fl005" ${orderDTO.line_cd eq 'fl005' ? 'checked':''}/> 5라인
 					</div><br>
+					<input type="hidden" name="instruction_date" class="instruction_date" value="${orderDTO.instruction_date}">
 					<div>
 					<label>생산지시일자</label>
-					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;"><br><br>
+					<input type="date" name="instruction_date" class="instruction_date" ><br><br>
 					</div>
 					<div>
 					<label>작업지시상태</label><br>
@@ -89,8 +86,8 @@ $('#update').submit(function(){
 			</fieldset>
 		
 	</form>
-<div style="text-align:center">
-		<button class="button2" form="update" onclick="submit">작업지시수정</button>
+	<div style="text-align:center">
+		<button class="button2" form="orderupdate" onclick="submit">작업지시수정</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 

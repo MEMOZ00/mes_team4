@@ -146,20 +146,10 @@ public class OrderController {
 		String instruction_code = request.getParameter("instruction_code");
 		OrderDTO orderDTO = orderService.orderinfo(instruction_code);
 		model.addAttribute("orderDTO", orderDTO);
-
+		System.out.println(orderDTO.getInstruction_date());
 		return "/order/OrderUpdate";
 	}
-	
-	@RequestMapping(value = "/order/orderupdatepro", method = RequestMethod.POST)
-	public String orderupdatepro(OrderDTO orderDTO) {
-		System.out.println("SystemController orderupdatepro()");
-		
-		orderService.orderupdatepro(orderDTO);
-		
-//		주소줄 변경하면서 이동
-		return "redirect:/order/ordermain";
-	}
-	
+
 	@RequestMapping(value = "/order/orderdelete", method = RequestMethod.GET)
 	public String memberdelete(HttpServletRequest request) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
@@ -170,5 +160,16 @@ public class OrderController {
 		 return "redirect:/order/ordermain";
 	}
 	
+	@RequestMapping(value = "/order/orderupdatepro", method = RequestMethod.POST)
+	public String orderupdatepro(OrderDTO orderDTO) {
+		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
+		System.out.println("OrderController orderupdatepro()");
+
+		orderService.orderupdatepro(orderDTO);
+		
+		// 가상주소에서 주소변경 하면서 이동
+		return "redirect:/order/ordermain";
+	}
+
 	
 }
