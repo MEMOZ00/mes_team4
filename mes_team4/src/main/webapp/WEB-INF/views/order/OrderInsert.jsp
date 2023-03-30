@@ -25,23 +25,10 @@ $(document).ready(function(){
 $('#insert').submit(function(){
 
 	if($('.instruction_qt').val()==""){
-		alert("생산지시수량을 입력하세요");
+	    alert("지시수량을 입력하세요");
 		$('.instruction_qt').focus();
 		return false;
-	}
-  //class="pass"
-    if($('.line_cd').val()==""){
-    	alert("생산할 라인을 선택하세요");
-		$('.line_cd').focus();
-		return false;
-    }
-  
-    if($('.instruction_state').val()==""){
-    	alert("작업지사상태를 선택하세요");
-		$('.instruction_state').focus();
-		return false;
-    }
-
+	    }
 
 setTimeout(function() {
  	 opener.parent.location.reload();
@@ -76,9 +63,11 @@ setTimeout(function() {
 					</div>
 					<div>
 					<label>라인코드</label><br>
-						<input type="radio" name="line_cd" class="line_cd" value="l1" /> 1라인
-						<input type="radio" name="line_cd" class="line_cd" value="l2" /> 2라인
-						<input type="radio" name="line_cd" class="line_cd" value="l3" /> 3라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl001" checked="checked"/> 1라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl002" /> 2라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl003" /> 3라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl004" /> 4라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl005" /> 5라인
 					</div><br>
 					<div>
 					<label>생산지시일자</label>
@@ -87,7 +76,7 @@ setTimeout(function() {
 					<div>
 					<label>작업지시상태</label><br>
 						<input type="radio" name="instruction_state" class="instruction_state" value="off" />대기
-						<input type="radio" name="instruction_state" class="instruction_state" value="on" />지시
+						<input type="radio" name="instruction_state" class="instruction_state" value="on" checked="checked"/>지시
 					</div>
 					
 			</fieldset>

@@ -47,6 +47,15 @@ public class OrderDAOImpl implements OrderDAO {
 		
 		return sqlSession.selectOne(namespace + ".orderinfo", instruction_code);
 	}
+	
+	
+	@Override
+	public void orderupdatepro(OrderDTO orderDTO) {
+		System.out.println("OrderDAOImpl orderupdatepro()");
+		
+		sqlSession.update(namespace + ".orderupdatepro", orderDTO);
+		
+	}
 	@Override
 	public void orderdelete(String instruction_code) {
 		System.out.println("OrderDAOImpl orderdelete()");

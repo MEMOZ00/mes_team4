@@ -48,6 +48,11 @@
         where instruction_code = #{instruction_code}
     </select>
     
+     <update id="orderupdatepro">
+     	update `order` set order_cd = #{order_cd}, product_cd = #{product_cd}, instruction_qt = #{instruction_qt}, line_cd = #{line_cd}, instruction_date = #{instruction_date}, instruction_state = #{instruction_state}
+     	where instruction_code = #{instruction_code}
+    </update>
+    
     <delete id="orderdelete">
   		delete from `order`
   		where instruction_code = #{instruction_code}

@@ -24,6 +24,8 @@ public interface OrderDAO {
 
 	int getordercount(PageDTO pageDTO);
 
+	public void orderupdatepro(OrderDTO orderDTO);
+
 
 
 }

@@ -25,4 +25,6 @@ public interface OrderService {
 
 	public int getordercount(PageDTO pageDTO);
 
+	public void orderupdatepro(OrderDTO orderDTO);
+
 }

@@ -22,29 +22,19 @@ $(document).ready(function(){
 $('#update').submit(function(){
 	
 	if($('.instruction_qt').val()==""){
-		alert("생산지시수량을 입력하세요");
+		alert("지시수량을 입력하세요");
 		$('.instruction_qt').focus();
 		return false;
 	}
   //class="pass"
-  if($('.line_cd').val()==""){
-    	alert("생산라인 코드를 선택하세요");
-		$('.line_cd').focus();
-		return false;
-    }
+
   
   if($('.instruction_date').val()==""){
     	alert("생산지시일자를 선택하세요");
 		$('.instruction_date').focus();
 		return false;
     }
-    
-  if($('.instruction_date').val()==""){
-    	alert("작업지시상태를 선택해주세요");
-		$('.instruction_date').focus();
-		return false;
-    }
- 
+
 
   setTimeout(function() {
 	  	 opener.parent.location.reload();
@@ -79,9 +69,11 @@ $('#update').submit(function(){
 					</div>
 					<div>
 					<label>라인코드</label><br>
-						<input type="radio" name="line_cd" class="line_cd" value="line1" ${orderDTO.line_cd eq 'line1' ? 'checked':''}/> 1라인
-						<input type="radio" name="line_cd" class="line_cd" value="line2" ${orderDTO.line_cd eq 'line2' ? 'checked':''}/> 2라인
-						<input type="radio" name="line_cd" class="line_cd" value="line3" ${orderDTO.line_cd eq 'line3' ? 'checked':''}/> 3라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl001" ${orderDTO.line_cd eq 'fl001' ? 'checked':''}/> 1라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl002" ${orderDTO.line_cd eq 'fl002' ? 'checked':''}/> 2라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl003" ${orderDTO.line_cd eq 'fl003' ? 'checked':''}/> 3라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl004" ${orderDTO.line_cd eq 'fl004' ? 'checked':''}/> 4라인
+						<input type="radio" name="line_cd" class="line_cd" value="fl005" ${orderDTO.line_cd eq 'fl005' ? 'checked':''}/> 5라인
 					</div><br>
 					<div>
 					<label>생산지시일자</label>

@@ -59,6 +59,8 @@ public class OrderController {
 			pageDTO.setEndPage(endPage);
 			pageDTO.setPageCount(pageCount);
 			
+			
+			
 			model.addAttribute("orderList", orderList);
 			model.addAttribute("pageDTO", pageDTO);
 			
@@ -146,6 +148,16 @@ public class OrderController {
 		model.addAttribute("orderDTO", orderDTO);
 
 		return "/order/OrderUpdate";
+	}
+	
+	@RequestMapping(value = "/order/orderupdatepro", method = RequestMethod.POST)
+	public String orderupdatepro(OrderDTO orderDTO) {
+		System.out.println("SystemController orderupdatepro()");
+		
+		orderService.orderupdatepro(orderDTO);
+		
+//		주소줄 변경하면서 이동
+		return "redirect:/order/ordermain";
 	}
 	
 	@RequestMapping(value = "/order/orderdelete", method = RequestMethod.GET)

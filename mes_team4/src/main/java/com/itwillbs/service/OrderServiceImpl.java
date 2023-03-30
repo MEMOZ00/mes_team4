@@ -44,15 +44,9 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public void orderinsertpro(OrderDTO orderDTO) {
 		System.out.println("OrderServiceImpl orderinsertpro()");
-		int num = 1;
-		if(orderDTO.getInstruction_code()== null) {
-			//게시판 글 없음 = num =1
-			orderDTO.setInstruction_code("I" + orderDTO.getOrder_cd() + "_" + num);
-		}else {
-			//게시판 글 있음 MaxNum()+1
-			orderDTO.setInstruction_code("I" + orderDTO.getOrder_cd() + "_" + "num+1");
-		}
-	
+		
+			orderDTO.setInstruction_code("IC" + orderDTO.getOrder_cd());
+
 		orderDAO.orderinsertpro(orderDTO);
 		
 	}
@@ -62,6 +56,14 @@ public class OrderServiceImpl implements OrderService{
 		System.out.println("OrderServiceImpl orderinfo()");
 		
 		return orderDAO.orderinfo(instruction_code);
+	}
+
+	@Override
+	public void orderupdatepro(OrderDTO orderDTO) {
+		System.out.println("OrderServiceImpl orderupdatepro()");
+		
+		orderDAO.orderupdatepro(orderDTO);
+		
 	}
 
 	@Override
