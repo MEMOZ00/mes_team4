@@ -71,7 +71,7 @@ setTimeout(function() {
 					</div><br>
 					<div>
 					<label>생산지시일자</label>
-					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" id="currentDate" readonly><br><br>
+					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" id="currentDate"><br><br>
 					</div>
 					<div>
 					<label>작업지시상태</label><br>

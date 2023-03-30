@@ -14,6 +14,7 @@
 <!-- 자바스크립트 입력 시작-->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
 //	alert("준비");
 //submit 버튼을 클릭했을때 폼태그 전송되어지면 이벤트 onsubmit()
@@ -54,7 +55,7 @@ $('#update').submit(function(){
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >작업지시수정</h2>
-		
+					<input type="hidden" name="instruction_code" class="instruction_code" value="${orderDTO.instruction_code}">
 					<div>
 					<label>수주코드</label>
 					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.order_cd}" readonly><br><br>
@@ -77,7 +78,7 @@ $('#update').submit(function(){
 					</div><br>
 					<div>
 					<label>생산지시일자</label>
-					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.instruction_date}"><br><br>
+					<input type="date" name="instruction_date" class="instruction_date" style="width:150px;height:30px;font-size:18px;"><br><br>
 					</div>
 					<div>
 					<label>작업지시상태</label><br>
