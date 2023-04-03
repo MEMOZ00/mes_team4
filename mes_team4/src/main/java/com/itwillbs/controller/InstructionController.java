@@ -130,6 +130,7 @@ public class InstructionController {
 	public String instructioninsertpro(InstructionDTO instructionDTO) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("InstructionController instructioninsertpro()");
+		String order_cd = instructionDTO.getOrder_cd();
 		
 		
 		// MemberService memberService = new MemberServiceImpl();

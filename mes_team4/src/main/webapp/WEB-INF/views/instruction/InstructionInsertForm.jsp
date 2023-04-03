@@ -40,25 +40,25 @@ function instructioninsert(a){
 					<th>납품예정일</th>
 					<th>수주량</th>
 					<th>완료여부</th>	
-					<th>추가</th>	
+					<th>작업지시추가</th>	
 				</tr>
 			</thead>
 			
 			<tbody>
 				
-				<c:forEach var ="OMDTO" items="${omList}">
-					<tr><td>${omList.order_cd}</td>
-						<td>${omList.business_cd}</td>
-						<td>${omList.emp_no}</td>
-						<td>${omList.product_cd}</td>
-						<td>${omList.order_date}</td>
-						<td>${omList.deliver_date}</td>
-						<td>${omList.order_count}</td>
-						<td>${omList.om_com}</td>
+				<c:forEach var ="orderDTO" items="${orderList}">
+					<tr><td>${orderDTO.order_cd}</td>
+						<td>${orderDTO.business_cd}</td>
+						<td>${orderDTO.emp_no}</td>
+						<td>${orderDTO.product_cd}</td>
+						<td>${orderDTO.order_date}</td>
+						<td>${orderDTO.deliver_date}</td>
+						<td>${orderDTO.order_count}</td>
+						<td>${orderDTO.con}</td>
 <!-- 		조건걸기: 1. (기본)수주가 완료된 상황 = omList.om_com이 1 -->
 <!-- 		2. 수주량>지시수량일때 omList.order_count > instrution_qt의 합 -->
 <!-- 			일 때 작업지시 추가버튼이 보이게 함 -->
-						<td><button class="button2" onclick="instructioninsert(${omList.order_cd})">추가</button></td>
+						<td><button class="button2" onclick="instructioninsert(${orderDTO.order_cd})">추가</button></td>
 			  	</c:forEach>
 			</tbody>
 		</table>

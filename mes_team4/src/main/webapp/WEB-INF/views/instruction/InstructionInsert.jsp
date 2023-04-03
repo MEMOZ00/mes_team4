@@ -51,11 +51,11 @@ setTimeout(function() {
 		
 					<div>
 					<label>수주코드</label>
-					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${omDTO.order_cd}" readonly><br><br>
+					<input type="text" name="order_cd" class="order_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.order_cd}" readonly><br><br>
 					</div>
 					<div>
 					<label>품목코드</label>
-					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${omDTO.product_cd}" readonly><br><br>
+					<input type="text" name="product_cd" class="product_cd" style="width:150px;height:30px;font-size:18px;" value="${orderDTO.product_cd}" readonly><br><br>
 					</div>
 					<div>
 					<label>지시수량</label>
