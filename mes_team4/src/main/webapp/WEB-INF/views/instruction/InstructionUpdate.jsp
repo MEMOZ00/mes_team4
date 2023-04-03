@@ -16,7 +16,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   
-	$('#orderupdate').submit(function(){
+	$('#update').submit(function(){
 	
 	if($('.instruction_qt').val()==""){
 		alert("지시수량을 입력하세요");
@@ -46,7 +46,7 @@ $(document).ready(function(){
 	<!-- 본문HTML 입력 시작-->
 
 
-	<form action="${pageContext.request.contextPath }/order/orderupdatepro" name="orderupdate" id="orderupdate" method="post">
+	<form action="${pageContext.request.contextPath }/instruction/instructionupdatepro" name="update" id="update" method="post">
 	
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
@@ -87,7 +87,7 @@ $(document).ready(function(){
 		
 	</form>
 	<div style="text-align:center">
-		<button class="button2" form="orderupdate" onclick="submit">작업지시수정</button>
+		<button class="button2" form="update" onclick="submit">작업지시수정</button>
 	  	<button class="button2" onclick="window.close()">창닫기</button>
 	  	</div>
 

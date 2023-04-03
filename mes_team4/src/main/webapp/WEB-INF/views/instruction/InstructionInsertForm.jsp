@@ -13,8 +13,8 @@
 
 <!-- 자바스크립트 입력 시작-->
 <script>
-function orderinsert(a){
-	var win = window.open("${pageContext.request.contextPath }order/orderinsert?order_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
+function instructioninsert(a){
+	var win = window.open("${pageContext.request.contextPath }instruction/instructioninsert?order_cd=" + a, "_blank", "width=570, height=570, top=200, left=200");
 }
 
 </script>
@@ -58,14 +58,14 @@ function orderinsert(a){
 <!-- 		조건걸기: 1. (기본)수주가 완료된 상황 = omList.om_com이 1 -->
 <!-- 		2. 수주량>지시수량일때 omList.order_count > instrution_qt의 합 -->
 <!-- 			일 때 작업지시 추가버튼이 보이게 함 -->
-						<td><button class="button2" onclick="orderinsert(${omList.order_cd})">추가</button></td>
+						<td><button class="button2" onclick="instructioninsert(${omList.order_cd})">추가</button></td>
 			  	</c:forEach>
 			</tbody>
 		</table>
 
 		<div id="array"></div>
 	<div id="table_search" style="text-align:right;">
-				<form action="${pageContext.request.contextPath}/order/orderinsertform" method="get">
+				<form action="${pageContext.request.contextPath}/instruction/instructioninsertform" method="get">
 					<input type="text" name="search" class="input_box"> 
 					<button class="button2"	type="submit" value="search">조회</button>	
 				</form>
@@ -75,15 +75,15 @@ function orderinsert(a){
 
 
 	<c:if test="${pageDTO.startPage > pageDTO.pageBlock}">
-	<a href="${pageContext.request.contextPath }/order/orderinsertform?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이전]</a>
+	<a href="${pageContext.request.contextPath }/instruction/instructioninsertform?pageNum=${pageDTO.startPage - pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이전]</a>
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-	<a href="${pageContext.request.contextPath }/order/orderinsertform?pageNum=${i}&search=${pageDTO.search}">${i}</a>
+	<a href="${pageContext.request.contextPath }/instruction/instructioninsertform?pageNum=${i}&search=${pageDTO.search}">${i}</a>
 </c:forEach>
 
 <c:if test="${pageDTO.endPage < pageDTO.pageCount}">
-	<a href="${pageContext.request.contextPath }/order/orderinsertform?pageNum=${pageDTO.endPage + pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이후]</a>
+	<a href="${pageContext.request.contextPath }/instruction/instructioninsertform?pageNum=${pageDTO.endPage + pageDTO.pageBlock}&search=${pageDTO.search}">[10페이지 이후]</a>
 </c:if>
 	
 <!-- 본문HTML 입력 끝-->

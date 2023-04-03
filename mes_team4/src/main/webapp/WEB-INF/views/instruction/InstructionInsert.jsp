@@ -44,7 +44,7 @@ setTimeout(function() {
 	<!-- 본문HTML 입력 시작-->
 	
 	
-	<form action="${pageContext.request.contextPath }/order/orderinsertpro" name="insert" id="insert" method="post">
+	<form action="${pageContext.request.contextPath }/instruction/instructioninsertpro" name="insert" id="insert" method="post">
 		
 <fieldset style="width:500px; height:450px; padding-left:20px; padding-right: 20px;">
 <h2 style= "margin-top: 30px; margin-bottom: 15px; text-align: center" >사용자추가</h2>

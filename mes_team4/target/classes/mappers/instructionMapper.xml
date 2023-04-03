@@ -4,7 +4,7 @@
 
 <!-- 파일이름 대신 namespace 이름을 불러서 사용 -->
 
-<mapper namespace="com.itwillbs.mappers.orderMapper">
+<mapper namespace="com.itwillbs.mappers.instructionMapper">
 	
 	<!-- ?대신 memberDTO의 멤버변수명 사용 #{id}-->
 <!-- 	<insert id="memberinsertpro"> -->
@@ -37,37 +37,37 @@
         where order_cd = #{order_cd}
     </select>
     
-    <insert id="orderinsertpro">
-        insert into order(instruction_code, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
+    <insert id="instructioninsertpro">
+        insert into instruction(instruction_code, order_cd, product_cd, instruction_qt, line_cd, instruction_date, instruction_state) 
 		values(#{instruction_code},#{order_cd},#{product_cd},#{instruction_qt},#{line_cd},#{instruction_date},#{instruction_state})
     </insert>
     
-    <select id="orderinfo" resultType="com.itwillbs.domain.OrderDTO">
+    <select id="instructioninfo" resultType="com.itwillbs.domain.InstructionDTO">
         select *
-        from `order`
+        from instruction
         where instruction_code = #{instruction_code}
     </select>
     
-     <update id="orderupdatepro">
-     	update `order` set order_cd = #{order_cd}, product_cd = #{product_cd}, instruction_qt = #{instruction_qt}, line_cd = #{line_cd}, instruction_date = #{instruction_date}, instruction_state = #{instruction_state}
+     <update id="instructionupdatepro">
+     	update instruction set order_cd = #{order_cd}, product_cd = #{product_cd}, instruction_qt = #{instruction_qt}, line_cd = #{line_cd}, instruction_date = #{instruction_date}, instruction_state = #{instruction_state}
      	where instruction_code = #{instruction_code}
     </update>
     
-    <delete id="orderdelete">
-  		delete from `order`
+    <delete id="instructiondelete">
+  		delete from instruction
   		where instruction_code = #{instruction_code}
     </delete>
     
- 	 <select id="getorderlist" resultType="com.itwillbs.domain.OrderDTO">
-    	select * from `order`
+ 	 <select id="instructionlist" resultType="com.itwillbs.domain.InstructionDTO">
+    	select * from instruction
     	<if test="search != null">
     	where order_cd like CONCAT('%',#{search},'%')
     	</if>
     	limit #{startRow},#{pageSize}	
     </select>
 	
-	<select id="getordercount" resultType="java.lang.Integer">
-        select count(*) from `order`
+	<select id="getinstructioncount" resultType="java.lang.Integer">
+        select count(*) from instruction
         <if test="search != null">
     	where order_cd like CONCAT('%',#{search},'%')
     	</if>
