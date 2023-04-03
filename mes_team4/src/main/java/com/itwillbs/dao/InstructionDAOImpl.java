@@ -8,8 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.InstructionDTO;
-import com.itwillbs.domain.OMDTO;
-
+import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
 
 @Repository
@@ -20,24 +19,24 @@ public class InstructionDAOImpl implements InstructionDAO {
 	static String namespace="com.itwillbs.mappers.instructionMapper";
 
 	@Override
-	public List<OMDTO> getomlist(PageDTO pageDTO) {
-		System.out.println("InstructionDAOImpl getomlist()");
+	public List<OrderDTO> getorderlist(PageDTO pageDTO) {
+		System.out.println("InstructionDAOImpl getorderlist()");
 		
-		return sqlSession.selectList(namespace +"getomlist", pageDTO);
+		return sqlSession.selectList(namespace +"getorderlist", pageDTO);
 	}
 
 	@Override
-	public int getomcount(PageDTO pageDTO) {
-		System.out.println("InstructionDAOImpl getomcount()");
+	public int getordercount(PageDTO pageDTO) {
+		System.out.println("InstructionDAOImpl getordercount()");
 		
-		return sqlSession.selectOne(namespace + ".getomcount", pageDTO);
+		return sqlSession.selectOne(namespace + ".getordercount", pageDTO);
 	}
 
 	@Override
-	public OMDTO ominfo(String order_cd) {
-		System.out.println("InstructionDAOImpl ominfo()");
+	public OrderDTO orderinfo(String order_cd) {
+		System.out.println("InstructionDAOImpl orderinfo()");
 		
-		return sqlSession.selectOne(namespace + ".ominfo", order_cd);
+		return sqlSession.selectOne(namespace + ".orderinfo", order_cd);
 	}
 
 	@Override

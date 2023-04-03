@@ -3,17 +3,17 @@ package com.itwillbs.service;
 import java.util.List;
 
 import com.itwillbs.domain.InstructionDTO;
-import com.itwillbs.domain.OMDTO;
+import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
 
 
 public interface InstructionService {
 	
-	public List<OMDTO> getomlist(PageDTO pageDTO);
+	public List<OrderDTO> getorderlist(PageDTO pageDTO);
 
-	public int getomcount(PageDTO pageDTO);
+	public int getordercount(PageDTO pageDTO);
 
-	public OMDTO ominfo(String order_cd);
+	public OrderDTO orderinfo(String order_cd);
 
 	public List<InstructionDTO> instructionlist(PageDTO pageDTO);
 
@@ -26,6 +26,12 @@ public interface InstructionService {
 	public void instructiondelete(String instruction_code);
 
 	public void instructionupdatepro(InstructionDTO instructionDTO);
+
+	
+
+	
+
+	
 
 
 }

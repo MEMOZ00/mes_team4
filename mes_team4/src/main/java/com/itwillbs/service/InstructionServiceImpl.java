@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.InstructionDAO;
 import com.itwillbs.domain.InstructionDTO;
-import com.itwillbs.domain.OMDTO;
+import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
 
 @Service
@@ -18,24 +18,24 @@ public class InstructionServiceImpl implements InstructionService{
 	private InstructionDAO instructionDAO;
 
 	@Override
-	public List<OMDTO> getomlist(PageDTO pageDTO) {
-		System.out.println("InstructionServiceImpl getomlist()");
+	public List<OrderDTO> getorderlist(PageDTO pageDTO) {
+		System.out.println("InstructionServiceImpl getorderlist()");
 		
-		return instructionDAO.getomlist(pageDTO);
+		return instructionDAO.getorderlist(pageDTO);
 	}
 
 	@Override
-	public int getomcount(PageDTO pageDTO) {
-		System.out.println("InstructionServiceImpl getomcount()");
+	public int getordercount(PageDTO pageDTO) {
+		System.out.println("InstructionServiceImpl getordercount()");
 		
-		return instructionDAO.getomcount(pageDTO);
+		return instructionDAO.getordercount(pageDTO);
 	}
 
 	@Override
-	public OMDTO ominfo(String order_cd) {
-		System.out.println("InstructionServiceImpl ominfo()");
+	public OrderDTO orderinfo(String order_cd) {
+		System.out.println("InstructionServiceImpl orderinfo()");
 		
-		return instructionDAO.ominfo(order_cd);
+		return instructionDAO.orderinfo(order_cd);
 	}
 
 	@Override

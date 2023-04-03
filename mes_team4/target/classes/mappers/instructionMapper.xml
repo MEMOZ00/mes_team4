@@ -16,7 +16,7 @@
 <!-- 		select max(emp_no) from employees -->
 <!-- 	</select> -->
 	
-	 <select id="getomlist" resultType="com.itwillbs.domain.OMDTO">
+	 <select id="getorderlist" resultType="com.itwillbs.domain.OMDTO">
     	select * from order_management
     	<if test="search != null">
     	where order_cd like CONCAT('%',#{search},'%')
@@ -24,14 +24,14 @@
     	limit #{startRow},#{pageSize}	
     </select>
 	
-	<select id="getomcount" resultType="java.lang.Integer">
+	<select id="getordercount" resultType="java.lang.Integer">
         select count(*) from order_management
         <if test="search != null">
     	where order_cd like CONCAT('%',#{search},'%')
     	</if>
     </select>
 
-    <select id="ominfo" resultType="com.itwillbs.domain.OMDTO">
+    <select id="orderinfo" resultType="com.itwillbs.domain.OMDTO">
         select *
         from order_management
         where order_cd = #{order_cd}

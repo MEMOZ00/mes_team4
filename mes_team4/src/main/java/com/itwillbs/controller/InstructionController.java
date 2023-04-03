@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.InstructionDTO;
-import com.itwillbs.domain.OMDTO;
 import com.itwillbs.domain.OrderDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.service.InstructionService;
@@ -89,10 +88,10 @@ public class InstructionController {
 			pageDTO.setCurrentPage(currentPage);
 			pageDTO.setSearch(search);
 			
-			List<OMDTO> omList=instructionService.getomlist(pageDTO);
+			List<OrderDTO> orderList=instructionService.getorderlist(pageDTO);
 			
 //			페이징처리
-			int count = instructionService.getomcount(pageDTO);
+			int count = instructionService.getordercount(pageDTO);
 			int pageBlock = 10;
 			int startPage = (currentPage-1)/pageBlock * pageBlock + 1;  
 			int endPage = startPage + pageBlock - 1;
@@ -107,7 +106,7 @@ public class InstructionController {
 			pageDTO.setEndPage(endPage);
 			pageDTO.setPageCount(pageCount);
 			
-			model.addAttribute("omList", omList);
+			model.addAttribute("orderList", orderList);
 			model.addAttribute("pageDTO", pageDTO);
 			
 			return "instruction/InstructionInsertForm";
@@ -121,8 +120,8 @@ public class InstructionController {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("InstructionController instructioninsert()");
 		String order_cd = request.getParameter("order_cd");
-		OMDTO omDTO = instructionService.ominfo(order_cd);
-		model.addAttribute("omDTO", omDTO);
+		OrderDTO orderDTO = instructionService.orderinfo(order_cd);
+		model.addAttribute("orderDTO", orderDTO);
 
 		return "instruction/InstructionInsert";
 	}
