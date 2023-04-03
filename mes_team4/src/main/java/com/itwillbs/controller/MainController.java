@@ -25,21 +25,14 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 		
 		// 가상주소 변경하며 페이지이동
-		return "redirect:/main";
+		return "redirect:/home";
 	}
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String main() {
 		
 		// 가상주소 유지
-		return "main/Main";
-	}
-	
-	@RequestMapping(value = "/main/home", method = RequestMethod.GET)
-	public String home() {
-		
-		// 가상주소 유지
-		return "main/homemain";
+		return "main/Home";
 	}
 	
 }//class
