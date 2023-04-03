@@ -42,7 +42,7 @@ public class InstructionController {
 			pageDTO.setCurrentPage(currentPage);
 			pageDTO.setSearch(search);
 			
-			List<InstructionDTO> instructionList=instructionService.instructionList(pageDTO);
+			List<InstructionDTO> instructionList=instructionService.instructionlist(pageDTO);
 			
 //			페이징처리
 			int count = instructionService.getinstructioncount(pageDTO);
@@ -120,7 +120,7 @@ public class InstructionController {
 	public String instructioninsert(HttpServletRequest request, Model model) {
 		// web.xml 에서 한글설정을 한번만 하면 모든 곳에서 한글처리
 		System.out.println("InstructionController instructioninsert()");
-		int order_cd = Integer.parseInt(request.getParameter("order_cd"));
+		String order_cd = request.getParameter("order_cd");
 		OMDTO omDTO = instructionService.ominfo(order_cd);
 		model.addAttribute("omDTO", omDTO);
 

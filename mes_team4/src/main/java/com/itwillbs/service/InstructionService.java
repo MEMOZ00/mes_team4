@@ -13,9 +13,9 @@ public interface InstructionService {
 
 	public int getomcount(PageDTO pageDTO);
 
-	public OMDTO ominfo(int order_cd);
+	public OMDTO ominfo(String order_cd);
 
-	public List<InstructionDTO> instructionList(PageDTO pageDTO);
+	public List<InstructionDTO> instructionlist(PageDTO pageDTO);
 
 	public int getinstructioncount(PageDTO pageDTO);
 
@@ -26,5 +26,6 @@ public interface InstructionService {
 	public void instructiondelete(String instruction_code);
 
 	public void instructionupdatepro(InstructionDTO instructionDTO);
+
 
 }

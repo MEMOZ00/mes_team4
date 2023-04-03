@@ -34,17 +34,17 @@ public class InstructionDAOImpl implements InstructionDAO {
 	}
 
 	@Override
-	public OMDTO ominfo(int order_cd) {
+	public OMDTO ominfo(String order_cd) {
 		System.out.println("InstructionDAOImpl ominfo()");
 		
 		return sqlSession.selectOne(namespace + ".ominfo", order_cd);
 	}
 
 	@Override
-	public List<InstructionDTO> instructionList(PageDTO pageDTO) {
-		System.out.println("InstructionDAOImpl instructionList()");
+	public List<InstructionDTO> instructionlist(PageDTO pageDTO) {
+		System.out.println("InstructionDAOImpl instructionlist()");
 		
-		return sqlSession.selectList(namespace + ".instructionList", pageDTO);
+		return sqlSession.selectList(namespace + ".instructionlist", pageDTO);
 	}
 
 	@Override

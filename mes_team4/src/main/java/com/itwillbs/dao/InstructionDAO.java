@@ -12,9 +12,9 @@ public interface InstructionDAO {
 
 	public int getomcount(PageDTO pageDTO);
 
-	public OMDTO ominfo(int order_cd);
+	public OMDTO ominfo(String order_cd);
 
-	public List<InstructionDTO> instructionList(PageDTO pageDTO);
+	public List<InstructionDTO> instructionlist(PageDTO pageDTO);
 
 	public int getinstructioncount(PageDTO pageDTO);
 

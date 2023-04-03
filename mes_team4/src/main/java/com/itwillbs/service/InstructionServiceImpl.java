@@ -32,17 +32,17 @@ public class InstructionServiceImpl implements InstructionService{
 	}
 
 	@Override
-	public OMDTO ominfo(int order_cd) {
+	public OMDTO ominfo(String order_cd) {
 		System.out.println("InstructionServiceImpl ominfo()");
 		
 		return instructionDAO.ominfo(order_cd);
 	}
 
 	@Override
-	public List<InstructionDTO> instructionList(PageDTO pageDTO) {
-		System.out.println("InstructionServiceImpl instructionList()");
+	public List<InstructionDTO> instructionlist(PageDTO pageDTO) {
+		System.out.println("InstructionServiceImpl instructionlist()");
 
-		return instructionDAO.instructionList(pageDTO);
+		return instructionDAO.instructionlist(pageDTO);
 	}
 
 	@Override
